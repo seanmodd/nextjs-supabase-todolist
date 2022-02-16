@@ -6,24 +6,23 @@ export default function IndexPage() {
   const { user } = Auth.useUser();
 
   return (
-    <div className="w-full h-full bg-gray-300">
+    <div className="h-full text-center bg-gray-300 ">
       {!user ? (
-        <div className="w-full h-full flex justify-center items-center p-4">
+        <div className="flex items-center w-1/2 h-full p-2">
           <Auth
             supabaseClient={supabase}
-            providers={['google', 'github']}
             socialLayout="horizontal"
             socialButtonSize="xlarge"
           />
         </div>
       ) : (
         <div
-          className="w-full h-full flex flex-col justify-center items-center p-4"
+          className="flex flex-col items-center justify-center w-full h-full p-4 align-middle"
           style={{ minWidth: 250, maxWidth: 600, margin: 'auto' }}
         >
           <TodoList user={supabase.auth.user()} />
           <button
-            className="btn-black w-full mt-12"
+            className="w-full mt-12 btn-black"
             onClick={async () => {
               const { error } = await supabase.auth.signOut();
               if (error) console.log('Error logging out:', error.message);

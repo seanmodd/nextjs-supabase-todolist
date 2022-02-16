@@ -2,9 +2,15 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
   },
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
+      fontFamily: {
+        gtamerica: 'Eurostile-Regular',
+      },
       colors: {
         'accent-1': '#333',
       },
@@ -12,4 +18,4 @@ module.exports = {
   },
   variants: {},
   plugins: [],
-}
+};
