@@ -7,8 +7,8 @@ class MyDocument extends Document {
         <Head>
           <link href="https://use.typekit.net/ovo7auu.css" rel="stylesheet" />
         </Head>
-        <body>
-          {/* <body className="forma-djr-micro"> */}
+        {/* <body style={{ fontFamily: 'neue-haas-grotesk-display' }}> */}
+        <body style={{ fontFamily: 'forma-djr-text' }}>
           <Main />
           <NextScript />
         </body>

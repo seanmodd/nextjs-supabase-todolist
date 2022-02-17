@@ -37,14 +37,14 @@ font-weight: 400;
   }
 }
 html,
-body {
+/* body { */
   /* font-family: aktiv-grotesk, sans-serif; */
   /* font-family: neue-haas, sans-serif; */
   /* font-family: neue-haas, sans-serif; */
   /* font-family: franklin-gothic-condensed, sans-serif; */
-  font-family: forma-djr-text, sans-serif;
+  /* font-family: forma-djr-text, sans-serif; */
   /* font-family: forma-djr-display, sans-serif; */
-},
+/* }, */
 #__next {
   height: 100vh;
   min-height: 100vh;

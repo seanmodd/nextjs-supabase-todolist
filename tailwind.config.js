@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        gtamerica: 'Eurostile-Regular',
+        neue: 'neue-haas-grotesk-display',
       },
       colors: {
         'accent-1': '#333',
