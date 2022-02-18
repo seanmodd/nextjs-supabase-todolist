@@ -5,9 +5,9 @@ import chevronDownFill from '@iconify/icons-eva/chevron-down-fill';
 // material
 import { Menu, Button, MenuItem, Typography } from '@mui/material';
 // redux
-// import { useDispatch } from '../../../../___redux/store';
+// import { useDispatch } from 'src/___redux/slices/product___redux/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { sortByProducts } from '../../../../___redux/slices/product';
+import { sortByProducts } from 'src/___redux/slices/product';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ function renderLabel(label) {
   if (label === 'popularity') {
     return 'Popularity';
   }
-  if(label === 'miles'){
+  if (label === 'miles') {
     return 'Miles on Odometer';
   }
   if (label === 'newest') {
@@ -32,7 +32,7 @@ function renderLabel(label) {
   if (label === 'priceDesc') {
     return 'Price: High-Low';
   }
-  if(label === 'priceAsc'){
+  if (label === 'priceAsc') {
     return 'Price: Low-High';
   }
 }

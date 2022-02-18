@@ -7,7 +7,7 @@ import { Paper, Box, Typography } from '@mui/material';
 // utils
 import { fData } from 'src/mui/utils/formatNumber';
 //
-import { UploadIllustration } from 'src/otherComponents/assets';
+import { UploadIllustration } from 'src/mui/assets';
 
 // ----------------------------------------------------------------------
 

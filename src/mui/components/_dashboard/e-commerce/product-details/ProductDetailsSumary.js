@@ -39,7 +39,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { addCart, onGotoStep } from 'src/___redux/slices/product';
 // routes
-import { PATH_DASHBOARD } from 'src/otherComponents//routes/paths';
+import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 // utils
 import { fShortenNumber, fCurrency } from 'src/mui/utils/formatNumber';
 //
@@ -53,7 +53,7 @@ import {
 import axios from 'axios';
 import Label from 'src/mui/components/Label';
 import { MIconButton } from 'src/mui/components/@material-extend';
-import ColorSinglePicker from '../../../../ColorSinglePicker';
+import ColorSinglePicker from 'src/___redux/slices/productColorSinglePicker';
 
 // ----------------------------------------------------------------------
 const PRODUCT_DESCRIPTION = [

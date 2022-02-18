@@ -287,7 +287,8 @@ export default function NotificationsPopover() {
         sx={{ width: 360 }}
       >
         <div className={styles.favList}>
-          {favoriteList?.length > 0 ? (
+          // Need Pavan to Fix
+          {/* {favoriteList?.length > 0 ? (
             favoriteList?.map((favItem, favIndex) => (
               <div className={styles.cardContainer} key={favIndex} onClick={() => redirectToDetails(favItem)}>
                 <ProductImgStyle src={favItem.image_url || favItem.car_imgSrcUrl_1} />
@@ -297,7 +298,7 @@ export default function NotificationsPopover() {
                   <span>${favItem.price}</span>
                 </div>
               </div>
-            )) : <span>0 Favorite Vehicles</span>}
+            )) : <span>0 Favorite Vehicles</span>} */}
         </div>
         {favoriteList?.length > 0 && (
           <Box sx={{ p: 1 }}>

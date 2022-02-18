@@ -24,7 +24,7 @@ import {
 //
 import { MIconButton } from 'src/mui/components/@material-extend';
 import Scrollbar from 'src/mui/components/Scrollbar';
-import ColorManyPicker from '../../../../ColorManyPicker';
+import ColorManyPicker from 'src/mui/components/ColorManyPicker';
 
 // ----------------------------------------------------------------------
 export const FILTER_CATEGORY_OPTIONS = ['New', 'Used'];

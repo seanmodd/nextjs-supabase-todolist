@@ -1,7 +1,7 @@
 // routes
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 // components
-import SvgIconStyle from 'src/otherComponents/components/SvgIconStyle';
+import SvgIconStyle from 'src/mui/components/SvgIconStyle';
 
 // ----------------------------------------------------------------------
 

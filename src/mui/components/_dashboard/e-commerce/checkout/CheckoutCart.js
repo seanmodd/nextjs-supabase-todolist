@@ -9,14 +9,14 @@ import { Grid, Card, Button, CardHeader, Typography } from '@mui/material';
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 import Scrollbar from 'src/mui/components/Scrollbar';
 import EmptyContent from 'src/mui/components/EmptyContent';
-import { useDispatch, useSelector } from '../../../../___redux/store';
+import { useDispatch, useSelector } from 'src/___redux/slices/product___redux/store';
 import {
   deleteCart,
   onNextStep,
   applyDiscount,
   increaseQuantity,
   decreaseQuantity,
-} from '../../../../___redux/slices/product';
+} from 'src/___redux/slices/product';
 // routes
 //
 import CheckoutSummary from './CheckoutSummary';

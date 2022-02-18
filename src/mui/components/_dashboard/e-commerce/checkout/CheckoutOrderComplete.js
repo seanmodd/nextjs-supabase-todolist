@@ -10,8 +10,8 @@ import { Box, Link, Button, Divider, Typography, Stack } from '@mui/material';
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 import { DialogAnimate } from 'src/mui/components/animate';
 import { OrderCompleteIllustration } from 'src/mui/assets';
-import { useDispatch } from '../../../../___redux/store';
-import { resetCart } from '../../../../___redux/slices/product';
+import { useDispatch } from 'src/___redux/slices/product___redux/store';
+import { resetCart } from 'src/___redux/slices/product';
 // routes
 //
 

@@ -22,7 +22,7 @@ import {
 // utils
 import { fData } from 'src/mui/utils/formatNumber';
 //
-import { UploadIllustration } from 'src/otherComponents/assets';
+import { UploadIllustration } from 'src/mui/assets';
 import { MIconButton } from '../@material-extend';
 import { varFadeInRight } from '../animate';
 
