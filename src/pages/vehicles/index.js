@@ -1,4 +1,4 @@
-import AllVehiclesPage from 'src/components/vehicles/_AllVehiclesPage.js';
+import AllVehiclesPage from 'src/components/_AllVehiclesPage.js';
 
 function vehicles() {
   return (

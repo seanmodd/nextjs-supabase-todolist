@@ -5,7 +5,7 @@ export default function ({ children }) {
   return (
     <>
       <TopNav />
-      {children}
+      <main className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">{children}</main>
       <Footer />
     </>
   );

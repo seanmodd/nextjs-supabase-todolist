@@ -1,16 +1,14 @@
-import VehicleFilter from './VehicleFilter';
-import VehicleSort from './VehicleSort';
 import VehicleGrid from './VehicleGrid';
 
-function Sort() {
+function Vehicle() {
   return (
     <>
       <div className="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
         <PageHeader />
         <div className="flex items-center">
-          <VehicleSort />
 
-          <VehicleFilter />
+
+
         </div>
       </div>
       <section aria-labelledby="vehicles-heading" className="pt-6 pb-24">
@@ -23,7 +21,7 @@ function Sort() {
   );
 }
 
-export default Sort;
+export default Vehicle;
 
 function PageHeader() {
   return (

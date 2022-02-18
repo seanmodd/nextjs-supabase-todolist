@@ -1,9 +1,10 @@
-import AllVehiclesPage from 'src/components/vehicles/_AllVehiclesPage.js';
+
+import VehiclePage from 'src/components/_VehiclePage';
 
 function details() {
   return (
     <div>
-      <AllVehiclesPage />
+      <VehiclePage />
     </div>
   );
 }
