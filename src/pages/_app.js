@@ -1,5 +1,5 @@
 import lightTheme from 'src/styles/theme/lightTheme';
-import createEmotionCache from 'src/styles/theme/utility/createEmotionCache';
+import createEmotionCache from 'src/mui/utils/createEmotionCache';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { Auth } from '@supabase/ui';
