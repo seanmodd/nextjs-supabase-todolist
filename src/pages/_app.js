@@ -22,6 +22,7 @@ import ThemePrimaryColor from 'src/mui/components/ThemePrimaryColor';
 import Settings from 'src/mui/components/settings';
 import RtlLayout from 'src/mui/components/RtlLayout';
 import ProgressBar from 'src/mui/components/ProgressBar';
+import { UserWrapper, FeedbackWrapper, CartWrapper } from 'src/mui/contexts';
 import { supabase } from '../lib/initSupabase';
 
 const clientSideEmotionCache = createEmotionCache();
@@ -41,24 +42,30 @@ const MyApp = (props) => {
           <ApolloProvider client={client}>
             <Auth.UserContextProvider supabaseClient={supabase}>
               <CacheProvider value={emotionCache}>
-                <ThemeConfig>
-                  <NotistackProvider>
-                    <ThemeProvider theme={lightTheme}>
-                      <ThemePrimaryColor>
-                        <RtlLayout>
-                          <NoSsr>
-                            <Settings />
-                          </NoSsr>
-                          {/* <CssBaseline /> */}
-                          <GlobalStyles />
-                          <MainLayout>
-                            <Component {...pageProps} />
-                          </MainLayout>
-                        </RtlLayout>
-                      </ThemePrimaryColor>
-                    </ThemeProvider>
-                  </NotistackProvider>
-                </ThemeConfig>
+                <FeedbackWrapper>
+                  <UserWrapper>
+                    <CartWrapper>
+                      <ThemeConfig>
+                        <NotistackProvider>
+                          <ThemeProvider theme={lightTheme}>
+                            <ThemePrimaryColor>
+                              <RtlLayout>
+                                <NoSsr>
+                                  <Settings />
+                                </NoSsr>
+                                {/* <CssBaseline /> */}
+                                <GlobalStyles />
+                                <MainLayout>
+                                  <Component {...pageProps} />
+                                </MainLayout>
+                              </RtlLayout>
+                            </ThemePrimaryColor>
+                          </ThemeProvider>
+                        </NotistackProvider>
+                      </ThemeConfig>
+                    </CartWrapper>
+                  </UserWrapper>
+                </FeedbackWrapper>
               </CacheProvider>
             </Auth.UserContextProvider>
           </ApolloProvider>
