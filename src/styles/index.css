@@ -1,4 +1,4 @@
-@import url("https://use.typekit.net/ovo7auu.css");
+/* @import url("https://use.typekit.net/ovo7auu.css"); */
 @tailwind base;
 
 /* Write your own custom base styles here */
@@ -53,6 +53,9 @@ html,
 h1 {
   font-size: 4rem;
   display: block;
+}
+p, li, ul {
+ font-family: forma-djr-text, sans-serif;
 }
 
 
@@ -112,5 +115,8 @@ h1 {
 
 .neue-haas {
 font-family: neue-haas-grotesk-display, sans-serif
+}
+.neue-haas-text {
+font-family: neue-haas-grotesk-text, sans-serif
 }
 

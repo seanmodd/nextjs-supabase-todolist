@@ -8,13 +8,16 @@ export default function IndexPage() {
   return (
     <div className="h-full text-center bg-gray-300 ">
       <h1 style={{ fontFamily: 'neue-haas-grotesk-display' }}>hello</h1>
+      <h1>hello</h1>
       {!user ? (
-        <div className="flex items-center w-1/2 h-full p-2">
-          <Auth
-            supabaseClient={supabase}
-            socialLayout="horizontal"
-            socialButtonSize="xlarge"
-          />
+        <div className="flex justify-center ">
+          <div>
+            <Auth
+              supabaseClient={supabase}
+              socialLayout="horizontal"
+              socialButtonSize="xlarge"
+            />
+          </div>
         </div>
       ) : (
         <div
