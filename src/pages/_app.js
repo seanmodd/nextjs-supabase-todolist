@@ -8,6 +8,7 @@ import '../styles/index.css';
 import { wrapperStore } from 'src/___redux/store';
 import GlobalStyles from 'src/styles/theme/globalStyles';
 // require('dotenv').config();
+
 import { getApolloClient } from 'src/graphql/data/apollo';
 import { HelmetProvider } from 'react-helmet-async';
 import NotistackProvider from 'src/mui/utils/NotistackProvider';
@@ -30,39 +31,41 @@ const MyApp = (props) => {
 
   const client = getApolloClient();
   return (
-    <PersistGate
-      // loading={<LoadingScreen />}
-      persistor={persistor}
-    >
-      {/* <ReduxProvider store={store}> */}
-      <ApolloWrapper>
-        <ApolloProvider client={client}>
-          <Auth.UserContextProvider supabaseClient={supabase}>
-            <CacheProvider value={emotionCache}>
-              <ThemeConfig>
-                <NotistackProvider>
-                  <ThemeProvider theme={lightTheme}>
-                    <ThemePrimaryColor>
-                      <RtlLayout>
-                        <NoSsr>
-                          <Settings />
-                        </NoSsr>
-                        {/* <CssBaseline /> */}
-                        <GlobalStyles />
-                        <MainLayout>
-                          <Component {...pageProps} />
-                        </MainLayout>
-                      </RtlLayout>
-                    </ThemePrimaryColor>
-                  </ThemeProvider>
-                </NotistackProvider>
-              </ThemeConfig>
-            </CacheProvider>
-          </Auth.UserContextProvider>
-        </ApolloProvider>
-      </ApolloWrapper>
-      {/* </ReduxProvider> */}
-    </PersistGate>
+    <HelmetProvider>
+      <PersistGate
+        // loading={<LoadingScreen />}
+        persistor={persistor}
+      >
+        {/* <ReduxProvider store={store}> */}
+        <ApolloWrapper>
+          <ApolloProvider client={client}>
+            <Auth.UserContextProvider supabaseClient={supabase}>
+              <CacheProvider value={emotionCache}>
+                <ThemeConfig>
+                  <NotistackProvider>
+                    <ThemeProvider theme={lightTheme}>
+                      <ThemePrimaryColor>
+                        <RtlLayout>
+                          <NoSsr>
+                            <Settings />
+                          </NoSsr>
+                          {/* <CssBaseline /> */}
+                          <GlobalStyles />
+                          <MainLayout>
+                            <Component {...pageProps} />
+                          </MainLayout>
+                        </RtlLayout>
+                      </ThemePrimaryColor>
+                    </ThemeProvider>
+                  </NotistackProvider>
+                </ThemeConfig>
+              </CacheProvider>
+            </Auth.UserContextProvider>
+          </ApolloProvider>
+        </ApolloWrapper>
+        {/* </ReduxProvider> */}
+      </PersistGate>
+    </HelmetProvider>
   );
 };
 

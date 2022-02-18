@@ -3,11 +3,11 @@ import { useState } from 'react';
 // material
 import { styled, useTheme } from '@mui/material/styles';
 // hooks
-import useCollapseDrawer from 'src/mui/hooks//useCollapseDrawer';
+import useCollapseDrawer from 'src/mui/hooks/useCollapseDrawer';
 //
+import CartWidget from 'src/mui/components/_dashboard/e-commerce/CartWidget';
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
-import CartWidget from 'src/mui/components/_dashboard/e-commerce/CartWidget'
 
 // ----------------------------------------------------------------------
 
@@ -47,10 +47,10 @@ export default function DashboardLayout({ children }) {
   return (
     <RootStyle>
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
-      <DashboardSidebar
+      {/* <DashboardSidebar
         isOpenSidebar={open}
         onCloseSidebar={() => setOpen(false)}
-      />
+      /> */}
       <MainStyle
         sx={{
           transition: theme.transitions.create('margin', {
@@ -61,9 +61,7 @@ export default function DashboardLayout({ children }) {
           }),
         }}
       >
-
         {children}
-
       </MainStyle>
     </RootStyle>
   );
