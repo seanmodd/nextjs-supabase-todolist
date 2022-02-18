@@ -167,7 +167,6 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             )}
           </MHidden>
         </Stack>
-
         {isCollapse ? (
           <MyAvatar />
         ) : (
@@ -191,6 +190,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             </AccountStyle>
           </NextLink>
         )}
+       
       </Stack>
       {isAuthenticated && (
         <NavSection
@@ -203,7 +203,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       )}
     </Scrollbar>
   );
-
+// RTHIS IS THE ANNOYING BUG
   return (
     <RootStyle
       sx={{
@@ -226,7 +226,6 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           {renderContent}
         </Drawer>
       </MHidden>
-
       <MHidden width="lgDown">
         <Drawer
           open
@@ -254,6 +253,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           {renderContent}
         </Drawer>
       </MHidden>
+
     </RootStyle>
   );
 }
