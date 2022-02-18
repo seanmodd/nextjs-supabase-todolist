@@ -15,7 +15,7 @@ function Sort() {
       </div>
       <section aria-labelledby="vehicles-heading" className="pt-6 pb-24">
         <h2 id="vehicles-heading" className="sr-only">
-          Vehicles
+          Vehicless
         </h2>
         <VehicleGrid />
       </section>
