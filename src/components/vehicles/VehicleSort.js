@@ -6,7 +6,6 @@ function VehicleSort() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <SortButton />
-
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -42,7 +41,6 @@ function VehicleSort() {
     </Menu>
   );
 }
-
 export default VehicleSort;
 
 const sortOptions = [
@@ -54,7 +52,6 @@ const sortOptions = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
-
 function SortButton() {
   return (
     <div>

@@ -1,6 +1,6 @@
 import AllVehiclesPage from 'src/components/vehicles/_AllVehiclesPage.js';
 
-function vehicles() {
+function details() {
   return (
     <div>
       <AllVehiclesPage />
@@ -8,4 +8,4 @@ function vehicles() {
   );
 }
 
-export default vehicles;
+export default details;

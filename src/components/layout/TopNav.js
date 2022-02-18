@@ -8,11 +8,7 @@ function Header() {
         <p className="flex items-center justify-center h-10 px-4 text-sm font-medium text-white bg-indigo-600 sm:px-6 lg:px-8">
           Join our Beta launch now!
         </p>
-
-        <nav
-          aria-label="Top"
-          className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8"
-        >
+        <nav className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="flex items-center h-16">
               {/* Menus */}

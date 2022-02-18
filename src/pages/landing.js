@@ -37,7 +37,7 @@ import {
   PlusSmIcon,
   ViewGridIcon,
 } from '@heroicons/react/solid';
-import ShopLayout from 'src/components/layout/AppLayout';
+import ShopLayout from 'src/components/layout/_AppLayout';
 
 export default function ShopComponent() {
   return (

@@ -1,29 +1,4 @@
 function ProductGrid() {
-  const products = [
-    {
-      id: 1,
-      name: 'Nomad Pouch',
-      href: '#',
-      price: '$50',
-      availability: 'White and Black',
-      imageSrc:
-        'https://tailwindui.com/img/ecommerce-images/category-page-07-product-01.jpg',
-      imageAlt:
-        'White fabric pouch with white zipper, black zipper pull, and black elastic loop.',
-    },
-    {
-      id: 2,
-      name: 'Zip Tote Basket',
-      href: '#',
-      price: '$140',
-      availability: 'Washed Black',
-      imageSrc:
-        'https://tailwindui.com/img/ecommerce-images/category-page-07-product-02.jpg',
-      imageAlt:
-        'Front of tote bag with washed black canvas body, black straps, and tan leather handles and accents.',
-    },
-    // More products...
-  ];
   return (
     <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:col-span-3 lg:gap-x-8">
       {products.map((product) => (
@@ -45,3 +20,29 @@ function ProductGrid() {
 }
 
 export default ProductGrid;
+
+const products = [
+  {
+    id: 1,
+    name: 'Nomad Pouch',
+    href: '#',
+    price: '$50',
+    availability: 'White and Black',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/category-page-07-product-01.jpg',
+    imageAlt:
+      'White fabric pouch with white zipper, black zipper pull, and black elastic loop.',
+  },
+  {
+    id: 2,
+    name: 'Zip Tote Basket',
+    href: '#',
+    price: '$140',
+    availability: 'Washed Black',
+    imageSrc:
+      'https://tailwindui.com/img/ecommerce-images/category-page-07-product-02.jpg',
+    imageAlt:
+      'Front of tote bag with washed black canvas body, black straps, and tan leather handles and accents.',
+  },
+  // More products...
+];
