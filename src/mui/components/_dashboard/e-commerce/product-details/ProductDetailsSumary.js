@@ -10,7 +10,7 @@ import linkedinFill from '@iconify/icons-eva/linkedin-fill';
 import roundVerified from '@iconify/icons-ic/round-verified';
 import roundVerifiedUser from '@iconify/icons-ic/round-verified-user';
 import clockFill from '@iconify/icons-eva/clock-fill';
-import client from 'src/__graphql/apolloClient_and_queries';
+import client from 'src/graphql/apolloClient_and_queries';
 import facebookFill from '@iconify/icons-eva/facebook-fill';
 import instagramFilled from '@iconify/icons-ant-design/instagram-filled';
 import roundAddShoppingCart from '@iconify/icons-ic/round-add-shopping-cart';

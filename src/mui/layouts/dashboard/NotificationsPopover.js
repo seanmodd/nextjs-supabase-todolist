@@ -30,7 +30,7 @@ import MenuPopover from 'src/mui/components/MenuPopover';
 import { MIconButton } from 'src/mui/components/@material-extend';
 import { USER_DATA, USER_FAVORITE_DATA } from 'src/utils/callbacks';
 
-import styles from 'styles/Home.module.css';
+import styles from 'src/styles/Home.module.css';
 import { styled } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import { getFavoriteList } from 'src/utils/localstorage';

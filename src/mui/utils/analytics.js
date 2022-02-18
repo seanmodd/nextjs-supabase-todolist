@@ -1,4 +1,4 @@
-import { googleAnalyticsConfig } from '../config';
+import { googleAnalyticsConfig } from 'src/config';
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ const track = {
   },
   event: (type, props) => {
     setup('event', type, props);
-  }
+  },
 };
 
 export default track;

@@ -14,10 +14,10 @@ import {
   getFavoriteList,
   removeAllFromFavoriteList,
 } from 'src/utils/localstorage';
-import { firebaseConfig } from '../../config';
+import { firebaseConfig } from 'src/config';
 
 // require('dotenv').config({ path: path.join(__dirname, '.env') });
-require('dotenv').config();
+// require('dotenv').config();
 
 // ----------------------------------------------------------------------
 

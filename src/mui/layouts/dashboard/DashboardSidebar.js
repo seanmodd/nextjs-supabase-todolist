@@ -181,7 +181,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
               <MyAvatar />
               <Box sx={{ ml: 2 }}>
                 <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                  {(isAuthenticated && user.displayName) || user.email}
+                  {/* {(isAuthenticated && user.displayName) || user.email} */}
                   {!isAuthenticated && 'Guest User'}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>

@@ -13,7 +13,7 @@ import {
   MapControlScale,
   MapControlNavigation,
 } from '../../map';
-import { mapConfig } from '../../../config';
+import { mapConfig } from '../src/config';
 
 // ----------------------------------------------------------------------
 

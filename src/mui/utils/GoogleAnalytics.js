@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { googleAnalyticsConfig } from '../config';
+import { googleAnalyticsConfig } from 'src/config';
 
 // ----------------------------------------------------------------------
 
