@@ -3,7 +3,7 @@ import useAuth from 'src/mui/hooks/useAuth';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 // next
-import NextLink from 'next/link';
+import { Link as NextLink } from 'next';
 import { useRouter } from 'next/router';
 
 // material
