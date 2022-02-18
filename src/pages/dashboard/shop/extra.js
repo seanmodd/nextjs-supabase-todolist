@@ -246,7 +246,8 @@ const EcommerceShop = (props) => {
 
   return (
     // <AuthGuard>
-    <DashboardLayout>
+    // <DashboardLayout>
+    <>
       <Stack
         direction="row"
         flexWrap="wrap-reverse"
@@ -355,7 +356,8 @@ const EcommerceShop = (props) => {
           </Box>
         </Container>
       </Page>
-    </DashboardLayout>
+    </>
+    // </DashboardLayout>
     // </AuthGuard>
   );
 };
