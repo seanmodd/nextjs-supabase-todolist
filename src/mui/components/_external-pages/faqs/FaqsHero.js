@@ -3,9 +3,21 @@ import { Icon } from '@iconify/react';
 import searchFill from '@iconify/icons-eva/search-fill';
 // material
 import { styled } from '@mui/material/styles';
-import { Box, alpha, Container, OutlinedInput, InputAdornment } from '@mui/material';
+import {
+  Box,
+  alpha,
+  Container,
+  OutlinedInput,
+  InputAdornment,
+} from '@mui/material';
 //
-import { varFadeInUp, TextAnimate, MotionInView, varWrapEnter, varFadeInRight } from '../../animate';
+import {
+  varFadeInUp,
+  TextAnimate,
+  MotionInView,
+  varWrapEnter,
+  varFadeInRight,
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -15,8 +27,8 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
   padding: theme.spacing(10, 0),
   [theme.breakpoints.up('md')]: {
     height: 560,
-    padding: 0
-  }
+    padding: 0,
+  },
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -24,8 +36,8 @@ const ContentStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     textAlign: 'left',
     position: 'absolute',
-    bottom: theme.spacing(10)
-  }
+    bottom: theme.spacing(10),
+  },
 }));
 
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
@@ -33,18 +45,18 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
   color: theme.palette.common.white,
   transition: theme.transitions.create(['box-shadow', 'width'], {
     easing: theme.transitions.easing.easeInOut,
-    duration: theme.transitions.duration.shorter
+    duration: theme.transitions.duration.shorter,
   }),
   '&.Mui-focused': {
     backgroundColor: alpha(theme.palette.common.white, 0.04),
     [theme.breakpoints.up('md')]: {
-      width: 480
-    }
+      width: 480,
+    },
   },
   '& fieldset': {
     borderWidth: `1px !important`,
-    borderColor: `${theme.palette.grey[500_32]} !important`
-  }
+    borderColor: `${theme.palette.grey[500_32]} !important`,
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -54,7 +66,11 @@ export default function FaqsHero() {
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container maxWidth="lg" sx={{ position: 'relative', height: '100%' }}>
         <ContentStyle>
-          <TextAnimate text="How" sx={{ color: 'primary.main' }} variants={varFadeInRight} />
+          <TextAnimate
+            text="How"
+            sx={{ color: 'primary.main' }}
+            variants={varFadeInRight}
+          />
           <br />
           <Box sx={{ display: 'inline-flex', color: 'common.white' }}>
             <TextAnimate text="can" sx={{ mr: 2 }} />
@@ -68,7 +84,11 @@ export default function FaqsHero() {
               placeholder="Search support"
               startAdornment={
                 <InputAdornment position="start">
-                  <Box component={Icon} icon={searchFill} sx={{ color: 'text.disabled' }} />
+                  <Box
+                    component={Icon}
+                    icon={searchFill}
+                    sx={{ color: 'text.disabled' }}
+                  />
                 </InputAdornment>
               }
             />

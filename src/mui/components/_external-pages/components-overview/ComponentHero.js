@@ -5,15 +5,20 @@ import roundArrowRightAlt from '@iconify/icons-ic/round-arrow-right-alt';
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, Link, Container, Typography, Stack } from '@mui/material';
 // components
-import { varFadeInUp, varWrapEnter, varFadeInDown } from '../../animate';
+import { MHidden } from 'src/mui/components/@material-extend';
+import {
+  varFadeInUp,
+  varWrapEnter,
+  varFadeInDown,
+} from 'src/mui/components/animate';
 //
-import { MHidden } from '../../@material-extend';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(10, 0),
-  backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800]
+  backgroundColor:
+    theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
 }));
 
 export default function ComponentHero() {
@@ -27,7 +32,7 @@ export default function ComponentHero() {
           maxWidth="lg"
           sx={{
             display: { md: 'flex' },
-            justifyContent: { md: 'space-between' }
+            justifyContent: { md: 'space-between' },
           }}
         >
           <div>
@@ -42,7 +47,7 @@ export default function ComponentHero() {
                 sx={{
                   mt: 3,
                   mb: 5,
-                  color: isLight ? 'text.secondary' : 'common.white'
+                  color: isLight ? 'text.secondary' : 'common.white',
                 }}
               >
                 With huge resource pack making deployment
@@ -51,8 +56,16 @@ export default function ComponentHero() {
             </motion.div>
 
             <motion.div variants={varFadeInUp}>
-              <Link href="https://www.sketch.com/s/0fa4699d-a3ff-4cd5-a3a7-d851eb7e17f0" target="_blank">
-                <Stack direction="row" spacing={1} alignItems="center" sx={{ display: 'inline-flex' }}>
+              <Link
+                href="https://www.sketch.com/s/0fa4699d-a3ff-4cd5-a3a7-d851eb7e17f0"
+                target="_blank"
+              >
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  alignItems="center"
+                  sx={{ display: 'inline-flex' }}
+                >
                   <Typography variant="button"> Fast preview</Typography>
                   <Icon icon={roundArrowRightAlt} width={20} height={20} />
                 </Stack>
@@ -62,7 +75,11 @@ export default function ComponentHero() {
 
           <MHidden width="mdDown">
             <motion.div variants={varFadeInDown}>
-              <Box component="img" src="/static/illustrations/illustration_components.png" sx={{ maxHeight: 320 }} />
+              <Box
+                component="img"
+                src="/static/illustrations/illustration_components.png"
+                sx={{ maxHeight: 320 }}
+              />
             </motion.div>
           </MHidden>
         </Container>

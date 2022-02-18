@@ -26,13 +26,13 @@ import {
   FormControlLabel,
 } from '@mui/material';
 // utils
-import { fDate } from 'src/otherComponents/utils/formatTime';
-import { fShortenNumber } from 'src/otherComponents/utils/formatNumber';
+import { fDate } from 'src/mui/utils/formatTime';
+import { fShortenNumber } from 'src/mui/utils/formatNumber';
 // hooks
 import useAuth from 'src/mui/hooks/useAuth';
 //
-import MyAvatar from '../../../../MyAvatar';
-import EmojiPicker from '../../../../EmojiPicker';
+import MyAvatar from 'src/mui/components/MyAvatar';
+import EmojiPicker from 'src/mui/components/EmojiPicker';
 
 // ----------------------------------------------------------------------
 

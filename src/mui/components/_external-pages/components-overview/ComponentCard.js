@@ -1,14 +1,21 @@
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'next';
 // material
-import { Box, Link, Grid, Paper, Typography, CardActionArea } from '@mui/material';
+import {
+  Box,
+  Link,
+  Grid,
+  Paper,
+  Typography,
+  CardActionArea,
+} from '@mui/material';
 //
-import { varFadeInUp, MotionInView } from '../../animate';
+import { varFadeInUp, MotionInView } from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
 ComponentCard.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
 };
 
 export default function ComponentCard({ item }) {
@@ -22,7 +29,7 @@ export default function ComponentCard({ item }) {
             sx={{
               p: 1,
               boxShadow: (theme) => theme.customShadows.z8,
-              '&:hover img': { transform: 'scale(1.1)' }
+              '&:hover img': { transform: 'scale(1.1)' },
             }}
           >
             <CardActionArea
@@ -30,7 +37,7 @@ export default function ComponentCard({ item }) {
                 p: 3,
                 borderRadius: 1,
                 color: 'primary.main',
-                bgcolor: 'background.neutral'
+                bgcolor: 'background.neutral',
               }}
             >
               <Box
@@ -39,7 +46,7 @@ export default function ComponentCard({ item }) {
                 alt={name}
                 sx={{
                   mx: 'auto',
-                  transition: (theme) => theme.transitions.create('all')
+                  transition: (theme) => theme.transitions.create('all'),
                 }}
               />
             </CardActionArea>

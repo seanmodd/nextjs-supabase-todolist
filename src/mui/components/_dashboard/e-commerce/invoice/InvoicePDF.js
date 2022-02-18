@@ -10,7 +10,7 @@ import {
   StyleSheet,
 } from '@react-pdf/renderer';
 // utils
-import { fCurrency } from '../src/mui/utils/formatNumber';
+import { fCurrency } from 'src/mui/utils/formatNumber';
 
 // ----------------------------------------------------------------------
 

@@ -22,22 +22,27 @@ import {
   Slider,
 } from '@mui/material';
 //
-import { MIconButton } from '../../../@material-extend';
-import Scrollbar from '../../../../Scrollbar';
+import { MIconButton } from 'src/mui/components/@material-extend';
+import Scrollbar from 'src/mui/components/Scrollbar';
 import ColorManyPicker from '../../../../ColorManyPicker';
 
 // ----------------------------------------------------------------------
 export const FILTER_CATEGORY_OPTIONS = ['New', 'Used'];
-export const FILTER_RATING_OPTIONS = ['up4Star', 'up3Star', 'up2Star', 'up1Star'];
+export const FILTER_RATING_OPTIONS = [
+  'up4Star',
+  'up3Star',
+  'up2Star',
+  'up1Star',
+];
 export const FILTER_PRICE_OPTIONS = [
   { value: 'below', label: 'Below $25,000' },
   { value: 'between', label: 'Between $25,0000 - $50,000' },
-  { value: 'above', label: 'Above $50,000' }
+  { value: 'above', label: 'Above $50,000' },
 ];
 export const FILTER_MILES = [
   { value: 'below', label: 'Below 20,000 miles' },
   { value: 'between', label: 'Between 20,000 miles - 60,000 miles' },
-  { value: 'above', label: 'Above 60,000 miles' }
+  { value: 'above', label: 'Above 60,000 miles' },
 ];
 
 const miles = [
@@ -46,7 +51,7 @@ const miles = [
   { value: 50, label: '50k' },
   { value: 75, label: '75k' },
   { value: 100, label: '100k' },
-]
+];
 
 const prices = [
   { value: 0, label: '$0' },
@@ -72,7 +77,7 @@ export const FILTER_COLOR_OPTIONS = [
   '#FF4842',
   '#1890FF',
   '#94D82D',
-  '#FFC107'
+  '#FFC107',
 ];
 
 // ----------------------------------------------------------------------
@@ -82,10 +87,18 @@ ShopFilterSidebar.propTypes = {
   onResetFilter: PropTypes.func,
   onOpenFilter: PropTypes.func,
   onCloseFilter: PropTypes.func,
-  formik: PropTypes.object
+  formik: PropTypes.object,
 };
 
-export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilter, onOpenFilter, onCloseFilter, formik, filtersData }) {
+export default function ShopFilterSidebar({
+  products,
+  isOpenFilter,
+  onResetFilter,
+  onOpenFilter,
+  onCloseFilter,
+  formik,
+  filtersData,
+}) {
   const { values, getFieldProps, handleChange, setFieldValue } = formik;
 
   const [price, setPrice] = useState([0, 100]);
@@ -108,20 +121,25 @@ export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilte
   }
 
   const handleChangePrice = (event, newValue) => {
-    const priceArray = [newValue[0] * 1000, newValue[1] * 1000]
-    setFieldValue('priceRange', priceArray)
+    const priceArray = [newValue[0] * 1000, newValue[1] * 1000];
+    setFieldValue('priceRange', priceArray);
     setPrice(newValue);
   };
 
   const handleChangeMile = (event, newValue) => {
-    const milesArray = [newValue[0] * 1000, newValue[1] * 1000]
-    setFieldValue('milesOdometer', milesArray)
+    const milesArray = [newValue[0] * 1000, newValue[1] * 1000];
+    setFieldValue('milesOdometer', milesArray);
     setMile(newValue);
   };
 
   return (
     <>
-      <Button disableRipple color="inherit" endIcon={<Icon icon={roundFilterList} />} onClick={onOpenFilter}>
+      <Button
+        disableRipple
+        color="inherit"
+        endIcon={<Icon icon={roundFilterList} />}
+        onClick={onOpenFilter}
+      >
         Filters&nbsp;
       </Button>
 
@@ -132,10 +150,15 @@ export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilte
             open={isOpenFilter}
             onClose={onCloseFilter}
             PaperProps={{
-              sx: { width: 280, border: 'none', overflow: 'hidden' }
+              sx: { width: 280, border: 'none', overflow: 'hidden' },
             }}
           >
-            <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: 1, py: 2 }}>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ px: 1, py: 2 }}
+            >
               <Typography variant="subtitle1" sx={{ ml: 1 }}>
                 Filters
               </Typography>
@@ -158,15 +181,19 @@ export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilte
                       overflowY: 'scroll'
                     }}>
                     </div> */}
-                      {filtersData?.groupBy?.make?.map((item, index) => {
-                        return <FormControlLabel
-                          key={index}
-                          control={
-                            <Checkbox {...getFieldProps('makes')} value={item.key} checked={values.makes?.includes(item.key)} />
-                          }
-                          label={item.key}
-                        />
-                      })}
+                    {filtersData?.groupBy?.make?.map((item, index) => (
+                      <FormControlLabel
+                        key={index}
+                        control={
+                          <Checkbox
+                            {...getFieldProps('makes')}
+                            value={item.key}
+                            checked={values.makes?.includes(item.key)}
+                          />
+                        }
+                        label={item.key}
+                      />
+                    ))}
                   </FormGroup>
                 </div>
 
@@ -175,15 +202,21 @@ export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilte
                     Dealership
                   </Typography>
                   <FormGroup>
-                    {filtersData?.groupBy?.car_dealership?.map((item, index) => {
-                      return <FormControlLabel
-                        key={index}
-                        control={
-                          <Checkbox {...getFieldProps('dealership')} value={item.key} checked={values.dealership?.includes(item.key)} />
-                        }
-                        label={item.key}
-                      />
-                    })}
+                    {filtersData?.groupBy?.car_dealership?.map(
+                      (item, index) => (
+                        <FormControlLabel
+                          key={index}
+                          control={
+                            <Checkbox
+                              {...getFieldProps('dealership')}
+                              value={item.key}
+                              checked={values.dealership?.includes(item.key)}
+                            />
+                          }
+                          label={item.key}
+                        />
+                      )
+                    )}
                   </FormGroup>
                 </div>
 
@@ -193,7 +226,12 @@ export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilte
                   </Typography>
                   <RadioGroup {...getFieldProps('category')}>
                     {FILTER_CATEGORY_OPTIONS.map((item, index) => (
-                      <FormControlLabel key={index} value={item} control={<Radio />} label={item} />
+                      <FormControlLabel
+                        key={index}
+                        value={item}
+                        control={<Radio />}
+                        label={item}
+                      />
                     ))}
                   </RadioGroup>
                 </div>
@@ -225,7 +263,9 @@ export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilte
                       <Typography variant="subtitle2" gutterBottom>
                         Min Price: {valuePrice(price[0])}
                       </Typography>
-                      <Typography variant="subtitle2">Max Price: {valuePrice(price[1])}</Typography>
+                      <Typography variant="subtitle2">
+                        Max Price: {valuePrice(price[1])}
+                      </Typography>
                     </Box>
                   </div>
                 </div>
@@ -257,7 +297,9 @@ export default function ShopFilterSidebar({ products, isOpenFilter, onResetFilte
                       <Typography variant="subtitle2" gutterBottom>
                         Min Miles: {valueMile(mile[0])}
                       </Typography>
-                      <Typography variant="subtitle2">Max Miles: {valueMile(mile[1])}</Typography>
+                      <Typography variant="subtitle2">
+                        Max Miles: {valueMile(mile[1])}
+                      </Typography>
                     </Box>
                   </div>
                 </div>

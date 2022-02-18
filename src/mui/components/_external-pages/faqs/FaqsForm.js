@@ -1,7 +1,7 @@
 // material
 import { Button, Typography, TextField, Stack } from '@mui/material';
 //
-import { varFadeInUp, MotionInView } from '../../animate';
+import { varFadeInUp, MotionInView } from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -25,7 +25,12 @@ export default function FaqsForm() {
       </MotionInView>
 
       <MotionInView variants={varFadeInUp}>
-        <TextField fullWidth label="Enter your message here." multiline rows={4} />
+        <TextField
+          fullWidth
+          label="Enter your message here."
+          multiline
+          rows={4}
+        />
       </MotionInView>
 
       <MotionInView variants={varFadeInUp}>

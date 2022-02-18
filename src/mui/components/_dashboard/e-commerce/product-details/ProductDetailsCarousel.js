@@ -9,7 +9,7 @@ import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 //
 import { CarouselControlsArrowsIndex } from 'src/mui/components/carousel/controls';
-import LightboxModal from '../../../../LightboxModal';
+import LightboxModal from 'src/mui/components/LightboxModal';
 
 // ----------------------------------------------------------------------
 

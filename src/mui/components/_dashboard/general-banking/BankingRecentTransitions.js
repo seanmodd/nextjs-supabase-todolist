@@ -36,9 +36,9 @@ import {
 // utils
 import { fCurrency } from 'src/mui/utils/formatNumber';
 //
-import Label from '../../../Label';
-import Scrollbar from '../../../Scrollbar';
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
+import Scrollbar from 'src/mui/components/Scrollbar';
+import Label from 'src/mui/components/Label';
 
 // ----------------------------------------------------------------------
 

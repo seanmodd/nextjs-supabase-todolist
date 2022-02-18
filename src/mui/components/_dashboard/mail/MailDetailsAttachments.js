@@ -5,16 +5,20 @@ import arrowCircleDownFill from '@iconify/icons-eva/arrow-circle-down-fill';
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Typography, IconButton, Stack } from '@mui/material';
 // utils
-import { getFileType, getFileName, getFileThumb } from 'src/mui/utils/getFileFormat';
+import {
+  getFileType,
+  getFileName,
+  getFileThumb,
+} from 'src/mui/utils/getFileFormat';
 //
-import Scrollbar from '../../../Scrollbar';
+import Scrollbar from 'src/mui/components/Scrollbar';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: `solid 1px ${theme.palette.divider}`,
-  backgroundColor: theme.palette.background.neutral
+  backgroundColor: theme.palette.background.neutral,
 }));
 
 const ThumbStyle = styled('div')(({ theme }) => ({
@@ -30,7 +34,7 @@ const ThumbStyle = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   border: `solid 1px ${theme.palette.divider}`,
   color: theme.palette.text.disabled,
-  '& img': { width: '100%', height: '100%' }
+  '& img': { width: '100%', height: '100%' },
 }));
 
 const DownloadStyle = styled('div')(({ theme }) => ({
@@ -50,14 +54,14 @@ const DownloadStyle = styled('div')(({ theme }) => ({
   '& svg': {
     transition: theme.transitions.create('color'),
     color: alpha(theme.palette.common.white, 0.64),
-    '&:hover': { color: theme.palette.common.white }
-  }
+    '&:hover': { color: theme.palette.common.white },
+  },
 }));
 
 // ----------------------------------------------------------------------
 
 FileItem.propTypes = {
-  fileUrl: PropTypes.string
+  fileUrl: PropTypes.string,
 };
 
 function FileItem({ fileUrl }) {
@@ -76,7 +80,7 @@ function FileItem({ fileUrl }) {
           mt: 0.5,
           maxWidth: 56,
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
         <Typography noWrap variant="caption">
@@ -91,7 +95,7 @@ function FileItem({ fileUrl }) {
 // ----------------------------------------------------------------------
 
 MailDetailsAttachments.propTypes = {
-  mail: PropTypes.object.isRequired
+  mail: PropTypes.object.isRequired,
 };
 
 export default function MailDetailsAttachments({ mail, ...other }) {

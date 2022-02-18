@@ -7,7 +7,7 @@ import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, Drawer, Divider, IconButton, useMediaQuery } from '@mui/material';
 // components
-import { MHidden } from '../../@material-extend';
+import { MHidden } from 'src/mui/components/@material-extend';
 //
 import ChatRoomAttachment from './ChatRoomAttachment';
 import ChatRoomOneParticipant from './ChatRoomOneParticipant';
@@ -17,7 +17,9 @@ import ChatRoomGroupParticipant from './ChatRoomGroupParticipant';
 
 const DRAWER_WIDTH = 240;
 
-const ToggleButtonStyle = styled((props) => <IconButton disableRipple {...props} />)(({ theme }) => ({
+const ToggleButtonStyle = styled((props) => (
+  <IconButton disableRipple {...props} />
+))(({ theme }) => ({
   right: 0,
   zIndex: 9,
   width: 32,
@@ -31,15 +33,15 @@ const ToggleButtonStyle = styled((props) => <IconButton disableRipple {...props}
   borderRadius: `12px 0 0 12px`,
   transition: theme.transitions.create('all'),
   '&:hover': {
-    backgroundColor: theme.palette.background.neutral
-  }
+    backgroundColor: theme.palette.background.neutral,
+  },
 }));
 
 // ----------------------------------------------------------------------
 
 ChatRoom.propTypes = {
   conversation: PropTypes.object.isRequired,
-  participants: PropTypes.array.isRequired
+  participants: PropTypes.array.isRequired,
 };
 
 export default function ChatRoom({ conversation, participants }) {
@@ -107,10 +109,14 @@ export default function ChatRoom({ conversation, participants }) {
       <ToggleButtonStyle
         onClick={handleToggleSidebar}
         sx={{
-          ...(openSidebar && !isMobile && { right: DRAWER_WIDTH })
+          ...(openSidebar && !isMobile && { right: DRAWER_WIDTH }),
         }}
       >
-        <Icon width={16} height={16} icon={openSidebar ? arrowIosForwardFill : arrowIosBackFill} />
+        <Icon
+          width={16}
+          height={16}
+          icon={openSidebar ? arrowIosForwardFill : arrowIosBackFill}
+        />
       </ToggleButtonStyle>
 
       <MHidden width="lgUp">
@@ -121,8 +127,8 @@ export default function ChatRoom({ conversation, participants }) {
           onClose={handleCloseSidebar}
           sx={{
             '& .MuiDrawer-paper': {
-              width: DRAWER_WIDTH
-            }
+              width: DRAWER_WIDTH,
+            },
           }}
         >
           {renderContent}
@@ -141,8 +147,8 @@ export default function ChatRoom({ conversation, participants }) {
             ...(!openSidebar && { width: '0px' }),
             '& .MuiDrawer-paper': {
               position: 'static',
-              width: DRAWER_WIDTH
-            }
+              width: DRAWER_WIDTH,
+            },
           }}
         >
           {renderContent}

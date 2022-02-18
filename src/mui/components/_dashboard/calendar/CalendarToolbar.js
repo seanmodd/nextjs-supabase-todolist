@@ -20,7 +20,7 @@ import {
 // utils
 import { fDate } from 'src/mui/utils/formatTime';
 //
-import { MHidden } from '../../@material-extend';
+import { MHidden } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 

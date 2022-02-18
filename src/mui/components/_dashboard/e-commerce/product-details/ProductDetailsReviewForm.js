@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // utils
-import fakeRequest from 'src/otherComponents/utils/fakeRequest';
+import fakeRequest from 'src/mui/utils/fakeRequest';
 
 // ----------------------------------------------------------------------
 

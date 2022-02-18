@@ -41,10 +41,7 @@ import { addCart, onGotoStep } from 'src/___redux/slices/product';
 // routes
 import { PATH_DASHBOARD } from 'src/otherComponents//routes/paths';
 // utils
-import {
-  fShortenNumber,
-  fCurrency,
-} from 'src/otherComponents/utils/formatNumber';
+import { fShortenNumber, fCurrency } from 'src/mui/utils/formatNumber';
 //
 import {
   Dialog,
@@ -54,8 +51,8 @@ import {
   DialogTitle,
 } from '@material-ui/core';
 import axios from 'axios';
-import { MIconButton } from '../../../@material-extend';
-import Label from '../../../../Label';
+import Label from 'src/mui/components/Label';
+import { MIconButton } from 'src/mui/components/@material-extend';
 import ColorSinglePicker from '../../../../ColorSinglePicker';
 
 // ----------------------------------------------------------------------

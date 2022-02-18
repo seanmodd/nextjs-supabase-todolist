@@ -6,6 +6,8 @@ import arrowIosBackFill from '@iconify/icons-eva/arrow-ios-back-fill';
 // material
 import { Box, Grid, Card, Button, Typography } from '@mui/material';
 // redux
+import mockData from 'src/mui/utils/mock-data';
+import Label from 'src/mui/components/Label';
 import { useDispatch, useSelector } from '../../../../___redux/store';
 import {
   onBackStep,
@@ -13,9 +15,7 @@ import {
   createBilling,
 } from '../../../../___redux/slices/product';
 // utils
-import mockData from '../src/mui/utils/mock-data';
 //
-import Label from '../../../../Label';
 import CheckoutSummary from './CheckoutSummary';
 import CheckoutNewAddressForm from './CheckoutNewAddressForm';
 

@@ -5,7 +5,7 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import { Stack, Card, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // utils
-import fakeRequest from 'src/otherComponents/utils/fakeRequest';
+import fakeRequest from 'src/mui/utils/fakeRequest';
 
 // ----------------------------------------------------------------------
 

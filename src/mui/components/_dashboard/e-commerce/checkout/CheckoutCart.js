@@ -6,6 +6,9 @@ import arrowIosBackFill from '@iconify/icons-eva/arrow-ios-back-fill';
 // material
 import { Grid, Card, Button, CardHeader, Typography } from '@mui/material';
 // redux
+import { PATH_DASHBOARD } from 'src/mui/routes/paths';
+import Scrollbar from 'src/mui/components/Scrollbar';
+import EmptyContent from 'src/mui/components/EmptyContent';
 import { useDispatch, useSelector } from '../../../../___redux/store';
 import {
   deleteCart,
@@ -15,10 +18,7 @@ import {
   decreaseQuantity,
 } from '../../../../___redux/slices/product';
 // routes
-import { PATH_DASHBOARD } from '../src/mui/routes/paths';
 //
-import Scrollbar from '../../../../Scrollbar';
-import EmptyContent from '../../../../EmptyContent';
 import CheckoutSummary from './CheckoutSummary';
 import CheckoutProductList from './CheckoutProductList';
 

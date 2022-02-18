@@ -7,7 +7,7 @@ import moreHorizontalFill from '@iconify/icons-eva/more-horizontal-fill';
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Typography } from '@mui/material';
 // utils
-import mockData from 'src/otherComponents/utils/mock-data';
+import mockData from 'src/mui/utils/mock-data';
 //
 import { CarouselControlsArrowsBasic2 } from './controls';
 //

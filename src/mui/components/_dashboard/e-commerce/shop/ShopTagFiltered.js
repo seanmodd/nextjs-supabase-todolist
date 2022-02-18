@@ -7,7 +7,7 @@ import roundClearAll from '@iconify/icons-ic/round-clear-all';
 import { useTheme, styled } from '@mui/material/styles';
 import { Chip, Typography, Stack, Button } from '@mui/material';
 // utils
-import getColorName from 'src/otherComponents/utils/getColorName';
+import getColorName from 'src/mui/utils/getColorName';
 
 // ----------------------------------------------------------------------
 
@@ -42,13 +42,13 @@ const LabelStyle = styled((props) => (
 
 function labelPriceRange(range) {
   if (range) {
-    return `$${range[0]} - $${range[1]}`
+    return `$${range[0]} - $${range[1]}`;
   }
 }
 
 function labelMilesOdometer(range) {
   if (range) {
-    return `${range[0]} - ${range[1]} miles`
+    return `${range[0]} - ${range[1]} miles`;
   }
 }
 
@@ -69,7 +69,8 @@ export default function ShopTagFiltered({
 }) {
   const theme = useTheme();
   const { values, handleSubmit, setFieldValue, initialValues } = formik;
-  const { gender, category, colors, priceRange, rating, milesOdometer } = filters;
+  const { gender, category, colors, priceRange, rating, milesOdometer } =
+    filters;
   const isShow = values !== initialValues && !isShowReset;
 
   const handleRemoveGender = (value) => {
@@ -104,7 +105,11 @@ export default function ShopTagFiltered({
     setFieldValue('rating', '');
   };
 
-  console.log('ShopTagFiltered.js	115	priceRange, miles', priceRange, milesOdometer);
+  console.log(
+    'ShopTagFiltered.js	115	priceRange, miles',
+    priceRange,
+    milesOdometer
+  );
 
   return (
     <RootStyle>

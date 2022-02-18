@@ -14,7 +14,7 @@ import {
   Stack,
 } from '@mui/material';
 // utils
-import { fShortenNumber } from 'src/otherComponents/utils/formatNumber';
+import { fShortenNumber } from 'src/mui/utils/formatNumber';
 
 // ----------------------------------------------------------------------
 

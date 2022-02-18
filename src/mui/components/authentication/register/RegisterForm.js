@@ -21,7 +21,7 @@ import useAuth from 'src/mui/hooks/useAuth';
 import useIsMountedRef from 'src/mui/hooks/useIsMountedRef';
 //
 
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 

@@ -9,7 +9,7 @@ import roundKeyboardArrowRight from '@iconify/icons-ic/round-keyboard-arrow-righ
 import { useTheme, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 //
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 
@@ -17,7 +17,7 @@ const SIZE = 40;
 
 const ICON_SIZE = {
   width: 20,
-  height: 20
+  height: 20,
 };
 
 const RootStyle = styled(Box)(({ theme }) => ({
@@ -30,7 +30,7 @@ const RootStyle = styled(Box)(({ theme }) => ({
   display: 'flex',
   position: 'absolute',
   padding: theme.spacing(0, 2),
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 }));
 
 const ArrowStyle = styled(MIconButton)(({ theme }) => ({
@@ -47,8 +47,8 @@ const ArrowStyle = styled(MIconButton)(({ theme }) => ({
   transition: theme.transitions.create('opacity'),
   '&:hover': {
     opacity: 1,
-    background: theme.palette.grey[900]
-  }
+    background: theme.palette.grey[900],
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -56,10 +56,15 @@ const ArrowStyle = styled(MIconButton)(({ theme }) => ({
 CarouselControlsArrowsBasic2.propTypes = {
   arrowLine: PropTypes.bool,
   onNext: PropTypes.func,
-  onPrevious: PropTypes.func
+  onPrevious: PropTypes.func,
 };
 
-export default function CarouselControlsArrowsBasic2({ arrowLine, onNext, onPrevious, ...other }) {
+export default function CarouselControlsArrowsBasic2({
+  arrowLine,
+  onNext,
+  onPrevious,
+  ...other
+}) {
   const theme = useTheme();
   const isRTL = theme.direction === 'rtl';
 
@@ -67,7 +72,10 @@ export default function CarouselControlsArrowsBasic2({ arrowLine, onNext, onPrev
     <RootStyle {...other}>
       <ArrowStyle size="small" onClick={onPrevious}>
         {arrowLine ? (
-          <Icon icon={isRTL ? roundKeyboardArrowRight : roundKeyboardArrowLeft} {...ICON_SIZE} />
+          <Icon
+            icon={isRTL ? roundKeyboardArrowRight : roundKeyboardArrowLeft}
+            {...ICON_SIZE}
+          />
         ) : (
           <Icon icon={isRTL ? arrowRightFill : arrowLeftFill} {...ICON_SIZE} />
         )}
@@ -75,7 +83,10 @@ export default function CarouselControlsArrowsBasic2({ arrowLine, onNext, onPrev
 
       <ArrowStyle size="small" onClick={onNext}>
         {arrowLine ? (
-          <Icon icon={isRTL ? roundKeyboardArrowLeft : roundKeyboardArrowRight} {...ICON_SIZE} />
+          <Icon
+            icon={isRTL ? roundKeyboardArrowLeft : roundKeyboardArrowRight}
+            {...ICON_SIZE}
+          />
         ) : (
           <Icon icon={isRTL ? arrowLeftFill : arrowRightFill} {...ICON_SIZE} />
         )}

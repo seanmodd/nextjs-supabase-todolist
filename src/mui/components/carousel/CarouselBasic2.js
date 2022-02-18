@@ -5,7 +5,7 @@ import { useState, useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Box, Card, Typography, CardContent } from '@mui/material';
 // utils
-import mockData from 'src/otherComponents/utils/mock-data';
+import mockData from 'src/mui/utils/mock-data';
 //
 import { CarouselControlsArrowsIndex } from './controls';
 

@@ -15,8 +15,12 @@ import {
 import { fPercent } from 'src/mui/utils/formatNumber';
 import mockData from 'src/mui/utils/mock-data';
 //
-import { MHidden } from '../../@material-extend';
-import { varFadeInUp, varFadeInRight, MotionInView } from '../../animate';
+import { MHidden } from 'src/mui/components/@material-extend';
+import {
+  varFadeInUp,
+  varFadeInRight,
+  MotionInView,
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 

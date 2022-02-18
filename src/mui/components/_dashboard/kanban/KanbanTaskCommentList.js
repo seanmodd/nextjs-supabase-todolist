@@ -6,7 +6,7 @@ import { Stack, Box, Avatar, Typography } from '@mui/material';
 // utils
 import { fToNow } from 'src/mui/utils/formatTime';
 //
-import LightboxModal from '../../../LightboxModal';
+import LightboxModal from 'src/mui/components/LightboxModal';
 
 // ----------------------------------------------------------------------
 

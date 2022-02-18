@@ -15,7 +15,7 @@ import {
 // utils
 import mockData from 'src/mui/utils/mock-data';
 //
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 

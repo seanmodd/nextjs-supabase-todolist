@@ -18,14 +18,14 @@ import {
 } from '@mui/material';
 // redux
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
-import { useSelector } from '../../../___redux/store';
 // utils
 import { fDate } from 'src/mui/utils/formatTime';
 import createAvatar from 'src/mui/utils/createAvatar';
 // routes
 //
-import { MAvatar, MHidden } from '../../@material-extend';
-import Label from '../../../Label';
+import { MAvatar, MHidden } from 'src/mui/components/@material-extend';
+import Label from 'src/mui/components/Label';
+import { useSelector } from '../../../___redux/store';
 import MailItemAction from './MailItemAction';
 
 // ----------------------------------------------------------------------

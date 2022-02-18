@@ -14,10 +14,10 @@ import {
   TextField,
   Typography,
   RadioGroup,
-  FormControlLabel
+  FormControlLabel,
 } from '@mui/material';
 //
-import { MHidden } from '../../@material-extend';
+import { MHidden } from 'src/mui/components/@material-extend';
 import PaymentNewCardForm from './PaymentNewCardForm';
 
 // ----------------------------------------------------------------------
@@ -26,35 +26,35 @@ const PAYMENT_OPTIONS = [
   {
     value: 'paypal',
     title: 'Pay with Paypal',
-    icons: ['/static/icons/ic_paypal.svg']
+    icons: ['/static/icons/ic_paypal.svg'],
   },
   {
     value: 'credit_card',
     title: 'Credit / Debit Card',
-    icons: ['/static/icons/ic_mastercard.svg', '/static/icons/ic_visa.svg']
-  }
+    icons: ['/static/icons/ic_mastercard.svg', '/static/icons/ic_visa.svg'],
+  },
 ];
 const CARD_OPTIONS = [
   {
     value: 'visa1',
-    label: '**** **** **** 1212 - Jimmy Holland'
+    label: '**** **** **** 1212 - Jimmy Holland',
   },
   {
     value: 'visa2',
-    label: '**** **** **** 2424 - Shawn Stokes'
+    label: '**** **** **** 2424 - Shawn Stokes',
   },
   {
     value: 'mastercard',
-    label: '**** **** **** 4545 - Cole Armstrong'
-  }
+    label: '**** **** **** 4545 - Cole Armstrong',
+  },
 ];
 
 const RootStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(3),
   [theme.breakpoints.up('md')]: {
     padding: 0,
-    paddingTop: theme.spacing(5)
-  }
+    paddingTop: theme.spacing(5),
+  },
 }));
 
 const OptionStyle = styled(Paper)(({ theme }) => ({
@@ -64,13 +64,13 @@ const OptionStyle = styled(Paper)(({ theme }) => ({
   paddingLeft: theme.spacing(2.5),
   paddingRight: theme.spacing(2),
   transition: theme.transitions.create('all'),
-  border: `solid 1px ${theme.palette.grey[500_32]}`
+  border: `solid 1px ${theme.palette.grey[500_32]}`,
 }));
 
 // ----------------------------------------------------------------------
 
 PaymentMethods.propTypes = {
-  formik: PropTypes.object
+  formik: PropTypes.object,
 };
 
 export default function PaymentMethods({ formik }) {
@@ -102,14 +102,16 @@ export default function PaymentMethods({ formik }) {
                 key={title}
                 sx={{
                   ...(values.method === value && {
-                    boxShadow: (theme) => theme.customShadows.z8
+                    boxShadow: (theme) => theme.customShadows.z8,
                   }),
-                  ...(hasChildren && { flexWrap: 'wrap' })
+                  ...(hasChildren && { flexWrap: 'wrap' }),
                 }}
               >
                 <FormControlLabel
                   value={value}
-                  control={<Radio checkedIcon={<Icon icon={checkmarkCircle2Fill} />} />}
+                  control={
+                    <Radio checkedIcon={<Icon icon={checkmarkCircle2Fill} />} />
+                  }
                   label={
                     <Typography variant="subtitle2" sx={{ ml: 1 }}>
                       {title}
@@ -127,8 +129,17 @@ export default function PaymentMethods({ formik }) {
                 </MHidden>
 
                 {hasChildren && (
-                  <Collapse in={values.method === 'credit_card'} sx={{ width: 1 }}>
-                    <TextField select fullWidth label="Card" {...getFieldProps('card')} SelectProps={{ native: true }}>
+                  <Collapse
+                    in={values.method === 'credit_card'}
+                    sx={{ width: 1 }}
+                  >
+                    <TextField
+                      select
+                      fullWidth
+                      label="Card"
+                      {...getFieldProps('card')}
+                      SelectProps={{ native: true }}
+                    >
                       {CARD_OPTIONS.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.label}
@@ -140,7 +151,9 @@ export default function PaymentMethods({ formik }) {
                       id="addNewCard"
                       type="button"
                       size="small"
-                      startIcon={<Icon icon={plusFill} width={20} height={20} />}
+                      startIcon={
+                        <Icon icon={plusFill} width={20} height={20} />
+                      }
                       onClick={handleCollapseIn}
                       sx={{ my: 3 }}
                     >
@@ -148,7 +161,10 @@ export default function PaymentMethods({ formik }) {
                     </Button>
 
                     <Collapse in={show}>
-                      <PaymentNewCardForm formik={formik} onCancel={handleCollapseOut} />
+                      <PaymentNewCardForm
+                        formik={formik}
+                        onCancel={handleCollapseOut}
+                      />
                     </Collapse>
                   </Collapse>
                 )}

@@ -13,7 +13,7 @@ import { Box, Typography, Stack, MenuItem } from '@mui/material';
 // utils
 import { fCurrency } from 'src/mui/utils/formatNumber';
 //
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
 import { CarouselControlsPaging1 } from '../../carousel';
 import MenuPopover from '../../../MenuPopover';
 

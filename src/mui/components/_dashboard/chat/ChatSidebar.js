@@ -13,14 +13,14 @@ import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, useMediaQuery, Stack, Drawer, IconButton } from '@mui/material';
 // redux
-import axios from 'src/otherComponents/utils/axios';
+import axios from 'src/mui/utils/axios';
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
+import { MIconButton, MHidden } from 'src/mui/components/@material-extend';
+import Scrollbar from 'src/mui/components/Scrollbar';
 import { useSelector } from '../../../___redux/store';
 // utils
 // routes
 //
-import { MIconButton, MHidden } from '../../@material-extend';
-import Scrollbar from '../../../Scrollbar';
 import ChatAccount from './ChatAccount';
 import ChatSearchResults from './ChatSearchResults';
 import ChatContactSearch from './ChatContactSearch';

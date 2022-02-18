@@ -13,7 +13,7 @@ import {
   varFadeInUp,
   varWrapEnter,
   varFadeInRight,
-} from '../../animate';
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 

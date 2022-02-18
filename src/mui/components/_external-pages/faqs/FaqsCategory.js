@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { Typography, Box, Grid, Paper } from '@mui/material';
 //
-import { varFadeIn, MotionInView } from '../../animate';
+import { varFadeIn, MotionInView } from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -10,39 +10,39 @@ const CATEGORIES = [
   {
     label: 'Managing your account',
     icon: '/static/faqs/ic_account.svg',
-    href: '#'
+    href: '#',
   },
   {
     label: 'Payment',
     icon: '/static/faqs/ic_payment.svg',
-    href: '#'
+    href: '#',
   },
   {
     label: 'Delivery',
     icon: '/static/faqs/ic_delivery.svg',
-    href: '#'
+    href: '#',
   },
   {
     label: 'Problem with the Product',
     icon: '/static/faqs/ic_package.svg',
-    href: '#'
+    href: '#',
   },
   {
     label: 'Return & Refund',
     icon: '/static/faqs/ic_refund.svg',
-    href: '#'
+    href: '#',
   },
   {
     label: 'Guarantees and assurances',
     icon: '/static/faqs/ic_assurances.svg',
-    href: '#'
-  }
+    href: '#',
+  },
 ];
 
 // ----------------------------------------------------------------------
 
 CategoryCard.propTypes = {
-  category: PropTypes.object
+  category: PropTypes.object,
 };
 
 function CategoryCard({ category }) {
@@ -58,7 +58,7 @@ function CategoryCard({ category }) {
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'center',
-        boxShadow: (theme) => theme.customShadows.z8
+        boxShadow: (theme) => theme.customShadows.z8,
       }}
     >
       <Box component="img" src={icon} sx={{ mb: 2, width: 80, height: 80 }} />

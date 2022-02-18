@@ -17,11 +17,11 @@ import {
   InputAdornment,
 } from '@mui/material';
 // utils
-import axios from 'src/otherComponents/utils/axios';
+import axios from 'src/mui/utils/axios';
 // routes
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 //
-import SearchNotFound from '../../../SearchNotFound';
+import SearchNotFound from 'src/mui/components/SearchNotFound';
 
 // ----------------------------------------------------------------------
 

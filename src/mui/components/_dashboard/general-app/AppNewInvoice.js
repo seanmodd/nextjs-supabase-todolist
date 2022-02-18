@@ -25,15 +25,15 @@ import {
   TableHead,
   Typography,
   CardHeader,
-  TableContainer
+  TableContainer,
 } from '@mui/material';
 // utils
 import { fCurrency } from 'src/mui/utils/formatNumber';
 import mockData from 'src/mui/utils/mock-data';
 //
-import Label from '../../../Label';
-import Scrollbar from '../../../Scrollbar';
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
+import Scrollbar from 'src/mui/components/Scrollbar';
+import Label from 'src/mui/components/Label';
 
 // ----------------------------------------------------------------------
 
@@ -41,7 +41,8 @@ const MOCK_INVOICES = [...Array(5)].map((_, index) => ({
   id: mockData.id(index),
   price: mockData.number.price(index),
   category: (index === 0 && 'Android') || (index === 2 && 'Mac') || 'Windows',
-  status: (index === 0 && 'paid') || (index === 2 && 'out_of_date') || 'in_progress'
+  status:
+    (index === 0 && 'paid') || (index === 2 && 'out_of_date') || 'in_progress',
 }));
 
 // ----------------------------------------------------------------------
@@ -60,18 +61,16 @@ function MoreMenuButton() {
 
   return (
     <>
-      <>
-        <MIconButton ref={menuRef} size="large" onClick={handleOpen}>
-          <Icon icon={moreVerticalFill} width={20} height={20} />
-        </MIconButton>
-      </>
+      <MIconButton ref={menuRef} size="large" onClick={handleOpen}>
+        <Icon icon={moreVerticalFill} width={20} height={20} />
+      </MIconButton>
 
       <Menu
         open={open}
         anchorEl={menuRef.current}
         onClose={handleClose}
         PaperProps={{
-          sx: { width: 200, maxWidth: '100%' }
+          sx: { width: 200, maxWidth: '100%' },
         }}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -139,7 +138,9 @@ export default function AppNewInvoice() {
                   <TableCell>{fCurrency(row.price)}</TableCell>
                   <TableCell>
                     <Label
-                      variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
+                      variant={
+                        theme.palette.mode === 'light' ? 'ghost' : 'filled'
+                      }
                       color={
                         (row.status === 'in_progress' && 'warning') ||
                         (row.status === 'out_of_date' && 'error') ||

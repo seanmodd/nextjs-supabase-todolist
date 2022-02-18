@@ -14,8 +14,8 @@ import {
   CardContent,
 } from '@mui/material';
 // utils
-import { fDate } from 'src/otherComponents/utils/formatTime';
-import LightboxModal from '../../../../LightboxModal';
+import { fDate } from 'src/mui/utils/formatTime';
+import LightboxModal from 'src/mui/components/LightboxModal';
 
 // ----------------------------------------------------------------------
 

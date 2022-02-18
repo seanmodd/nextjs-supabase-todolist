@@ -5,7 +5,7 @@ import { Box, Grid, Button, Container, Typography } from '@mui/material';
 // routes
 import { PATH_PAGE } from 'src/mui/routes/paths';
 //
-import { varFadeInUp, MotionInView } from '../../animate';
+import { varFadeInUp, MotionInView } from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 

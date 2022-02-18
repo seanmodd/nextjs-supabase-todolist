@@ -7,16 +7,23 @@ import shareFill from '@iconify/icons-eva/share-fill';
 import downloadFill from '@iconify/icons-eva/download-fill';
 import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 // material
-import { Box, Tooltip, IconButton, DialogActions, Stack, Button } from '@mui/material';
+import {
+  Box,
+  Tooltip,
+  IconButton,
+  DialogActions,
+  Stack,
+  Button,
+} from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 //
-import { DialogAnimate } from '../../../animate';
+import { DialogAnimate } from 'src/mui/components/animate';
 import InvoicePDF from './InvoicePDF';
 
 // ----------------------------------------------------------------------
 
 InvoiceToolbar.propTypes = {
-  invoice: PropTypes.object.isRequired
+  invoice: PropTypes.object.isRequired,
 };
 
 export default function InvoiceToolbar({ invoice }) {
@@ -33,7 +40,12 @@ export default function InvoiceToolbar({ invoice }) {
   return (
     <>
       <Stack mb={5} direction="row" justifyContent="flex-end" spacing={1.5}>
-        <Button color="error" size="small" variant="contained" endIcon={<Icon icon={shareFill} />}>
+        <Button
+          color="error"
+          size="small"
+          variant="contained"
+          endIcon={<Icon icon={shareFill} />}
+        >
           Share
         </Button>
 
@@ -73,7 +85,7 @@ export default function InvoiceToolbar({ invoice }) {
             sx={{
               zIndex: 9,
               padding: '12px !important',
-              boxShadow: (theme) => theme.customShadows.z8
+              boxShadow: (theme) => theme.customShadows.z8,
             }}
           >
             <Tooltip title="Close">

@@ -4,9 +4,24 @@ import checkmarkFill from '@iconify/icons-eva/checkmark-fill';
 import chevronRightFill from '@iconify/icons-eva/chevron-right-fill';
 // material
 import { useTheme, styled, alpha } from '@mui/material/styles';
-import { Box, Grid, Card, Link, Stack, Button, Divider, Container, Typography } from '@mui/material';
+import {
+  Box,
+  Grid,
+  Card,
+  Link,
+  Stack,
+  Button,
+  Divider,
+  Container,
+  Typography,
+} from '@mui/material';
 //
-import { varFadeIn, varFadeInUp, MotionInView, varFadeInDown } from '../../animate';
+import {
+  varFadeIn,
+  varFadeInUp,
+  MotionInView,
+  varFadeInDown,
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -15,15 +30,25 @@ const LICENSES = ['Standard', 'Standard Plus', 'Extended'];
 const PLANS = [...Array(3)].map((_, index) => ({
   license: LICENSES[index],
   commons: ['One end products', '12 months updates', '6 months of support'],
-  options: ['JavaScript version', 'TypeScript version', 'Design Resources', 'Commercial applications'],
-  icons: ['/static/home/ic_sketch.svg', '/static/home/ic_figma.svg', '/static/home/ic_js.svg', '/static/home/ic_ts.svg']
+  options: [
+    'JavaScript version',
+    'TypeScript version',
+    'Design Resources',
+    'Commercial applications',
+  ],
+  icons: [
+    '/static/home/ic_sketch.svg',
+    '/static/home/ic_figma.svg',
+    '/static/home/ic_js.svg',
+    '/static/home/ic_ts.svg',
+  ],
 }));
 
 const RootStyle = styled('div')(({ theme }) => ({
   paddingTop: theme.spacing(15),
   [theme.breakpoints.up('md')]: {
-    paddingBottom: theme.spacing(15)
-  }
+    paddingBottom: theme.spacing(15),
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -34,8 +59,8 @@ PlanCard.propTypes = {
     license: PropTypes.any,
     commons: PropTypes.arrayOf(PropTypes.string),
     icons: PropTypes.arrayOf(PropTypes.string),
-    options: PropTypes.arrayOf(PropTypes.string)
-  })
+    options: PropTypes.arrayOf(PropTypes.string),
+  }),
 };
 
 function PlanCard({ plan, cardIndex }) {
@@ -49,16 +74,25 @@ function PlanCard({ plan, cardIndex }) {
       sx={{
         p: 5,
         boxShadow: (theme) =>
-          `0px 48px 80px ${alpha(isLight ? theme.palette.grey[500] : theme.palette.common.black, 0.12)}`,
+          `0px 48px 80px ${alpha(
+            isLight ? theme.palette.grey[500] : theme.palette.common.black,
+            0.12
+          )}`,
         ...(cardIndex === 1 && {
           boxShadow: (theme) =>
-            `0px 48px 80px ${alpha(isLight ? theme.palette.grey[500] : theme.palette.common.black, 0.48)}`
-        })
+            `0px 48px 80px ${alpha(
+              isLight ? theme.palette.grey[500] : theme.palette.common.black,
+              0.48
+            )}`,
+        }),
       }}
     >
       <Stack spacing={5}>
         <div>
-          <Typography variant="overline" sx={{ mb: 2, color: 'text.disabled', display: 'block' }}>
+          <Typography
+            variant="overline"
+            sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
+          >
             LICENSE
           </Typography>
           <Typography variant="h4">{license}</Typography>
@@ -69,15 +103,29 @@ function PlanCard({ plan, cardIndex }) {
         ) : (
           <Stack direction="row" spacing={1}>
             {icons.map((icon) => (
-              <Box key={icon} component="img" src={icon} sx={{ width: 40, height: 40 }} />
+              <Box
+                key={icon}
+                component="img"
+                src={icon}
+                sx={{ width: 40, height: 40 }}
+              />
             ))}
           </Stack>
         )}
 
         <Stack spacing={2.5}>
           {commons.map((option) => (
-            <Stack key={option} spacing={1.5} direction="row" alignItems="center">
-              <Box component={Icon} icon={checkmarkFill} sx={{ color: 'primary.main', width: 20, height: 20 }} />
+            <Stack
+              key={option}
+              spacing={1.5}
+              direction="row"
+              alignItems="center"
+            >
+              <Box
+                component={Icon}
+                icon={checkmarkFill}
+                sx={{ color: 'primary.main', width: 20, height: 20 }}
+              />
               <Typography variant="body2">{option}</Typography>
             </Stack>
           ))}
@@ -97,7 +145,7 @@ function PlanCard({ plan, cardIndex }) {
                 direction="row"
                 alignItems="center"
                 sx={{
-                  ...(disabledLine && { color: 'text.disabled' })
+                  ...(disabledLine && { color: 'text.disabled' }),
                 }}
                 key={option}
               >
@@ -108,7 +156,7 @@ function PlanCard({ plan, cardIndex }) {
                     width: 20,
                     height: 20,
                     color: 'primary.main',
-                    ...(disabledLine && { color: 'text.disabled' })
+                    ...(disabledLine && { color: 'text.disabled' }),
                   }}
                 />
                 <Typography variant="body2">{option}</Typography>
@@ -126,7 +174,7 @@ function PlanCard({ plan, cardIndex }) {
             sx={{
               typography: 'body2',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
             }}
           >
             Learn more <Icon icon={chevronRightFill} width={20} height={20} />
@@ -153,7 +201,11 @@ export default function LandingPricingPlans() {
       <Container maxWidth="lg">
         <Box sx={{ mb: 10, textAlign: 'center' }}>
           <MotionInView variants={varFadeInUp}>
-            <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
+            <Typography
+              component="p"
+              variant="overline"
+              sx={{ mb: 2, color: 'text.secondary' }}
+            >
               pricing plans
             </Typography>
           </MotionInView>
@@ -165,7 +217,10 @@ export default function LandingPricingPlans() {
           <MotionInView variants={varFadeInDown}>
             <Typography
               sx={{
-                color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'text.primary')
+                color: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? 'text.secondary'
+                    : 'text.primary',
               }}
             >
               Choose the perfect plan for your needs. Always flexible to grow
@@ -176,7 +231,9 @@ export default function LandingPricingPlans() {
         <Grid container spacing={5}>
           {PLANS.map((plan, index) => (
             <Grid key={plan.license} item xs={12} md={4}>
-              <MotionInView variants={index === 1 ? varFadeInDown : varFadeInUp}>
+              <MotionInView
+                variants={index === 1 ? varFadeInDown : varFadeInUp}
+              >
                 <PlanCard plan={plan} cardIndex={index} />
               </MotionInView>
             </Grid>

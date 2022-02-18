@@ -3,10 +3,23 @@ import { Icon } from '@iconify/react';
 import roundArrowRightAlt from '@iconify/icons-ic/round-arrow-right-alt';
 // material
 import { alpha, useTheme, styled } from '@mui/material/styles';
-import { Box, Grid, Link, Paper, Rating, Container, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Grid,
+  Link,
+  Paper,
+  Rating,
+  Container,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 //
-import { varFadeInUp, varFadeInLeft, MotionInView } from '../../animate';
-import { MHidden } from '../../@material-extend';
+import { MHidden } from 'src/mui/components/@material-extend';
+import {
+  varFadeInUp,
+  varFadeInLeft,
+  MotionInView,
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -15,45 +28,48 @@ const TESTIMONIALS = [
     name: 'Jenny Wilson',
     rating: 5,
     dateCreate: 'April 19, 2021',
-    content: `Excellent Work! Thanks a lot!`
+    content: `Excellent Work! Thanks a lot!`,
   },
   {
     name: 'Cody Fisher',
     rating: 5,
     dateCreate: 'April 19, 2021',
-    content: `It's a very good dashboard and we are really liking the product . We've done some things, like migrate to TS and implementing a react useContext api, to fit our job methodology but the product is one of the best in terms of design and application architecture. The team did a really good job.`
+    content: `It's a very good dashboard and we are really liking the product . We've done some things, like migrate to TS and implementing a react useContext api, to fit our job methodology but the product is one of the best in terms of design and application architecture. The team did a really good job.`,
   },
   {
     name: 'Marvin McKinney',
     rating: 5,
     dateCreate: 'April 19, 2021',
-    content: `Customer support is realy fast and helpful the desgin of this theme is looks amazing also the code is very clean and readble realy good job !`
+    content: `Customer support is realy fast and helpful the desgin of this theme is looks amazing also the code is very clean and readble realy good job !`,
   },
   {
     name: 'Darrell Steward',
     rating: 5,
     dateCreate: 'April 19, 2021',
-    content: `Amazing, really good code quality and gives you a lot of examples for implementations.`
+    content: `Amazing, really good code quality and gives you a lot of examples for implementations.`,
   },
   {
     name: 'Jacob Jones',
     rating: 5,
     dateCreate: 'April 19, 2021',
-    content: `Got a few questions after purchasing the product. The owner responded very fast and very helpfull. Overall the code is excellent and works very good. 5/5 stars!`
+    content: `Got a few questions after purchasing the product. The owner responded very fast and very helpfull. Overall the code is excellent and works very good. 5/5 stars!`,
   },
   {
     name: 'Bessie Cooper',
     rating: 5,
     dateCreate: 'April 19, 2021',
-    content: `CEO of Codealy.io here. We’ve built a developer assessment platform that makes sense - tasks are based on git repositories and run in virtual machines. We automate the pain points - storing candidates code, running it and sharing test results with the whole team, remotely. Bought this template as we need to provide an awesome dashboard for our early customers. I am super happy with purchase. The code is just as good as the design. Thanks!`
-  }
+    content: `CEO of Codealy.io here. We’ve built a developer assessment platform that makes sense - tasks are based on git repositories and run in virtual machines. We automate the pain points - storing candidates code, running it and sharing test results with the whole team, remotely. Bought this template as we need to provide an awesome dashboard for our early customers. I am super happy with purchase. The code is just as good as the design. Thanks!`,
+  },
 ];
 
 const RootStyle = styled('div')(({ theme }) => ({
   textAlign: 'center',
   padding: theme.spacing(10, 0),
   backgroundSize: 'cover',
-  backgroundImage: `linear-gradient(to right, ${alpha(theme.palette.grey[900], 0.8)} , ${alpha(
+  backgroundImage: `linear-gradient(to right, ${alpha(
+    theme.palette.grey[900],
+    0.8
+  )} , ${alpha(
     theme.palette.grey[900],
     0.8
   )}), url(/static/about/testimonials.jpg)`,
@@ -61,21 +77,29 @@ const RootStyle = styled('div')(({ theme }) => ({
     textAlign: 'left',
     padding: 0,
     height: 840,
-    overflow: 'hidden'
-  }
+    overflow: 'hidden',
+  },
 }));
 
 // ----------------------------------------------------------------------
 
 TestimonialCard.propTypes = {
-  testimonial: PropTypes.object
+  testimonial: PropTypes.object,
 };
 
 function TestimonialLink() {
   return (
-    <Link href="#" variant="subtitle2" sx={{ display: 'flex', alignItems: 'center' }}>
+    <Link
+      href="#"
+      variant="subtitle2"
+      sx={{ display: 'flex', alignItems: 'center' }}
+    >
       Read more testimonials
-      <Box component={Icon} icon={roundArrowRightAlt} sx={{ ml: 1, width: 20, height: 20 }} />
+      <Box
+        component={Icon}
+        icon={roundArrowRightAlt}
+        sx={{ ml: 1, width: 20, height: 20 }}
+      />
     </Link>
   );
 }
@@ -90,13 +114,18 @@ function TestimonialCard({ testimonial }) {
         color: 'common.white',
         backdropFilter: 'blur(4px)',
         WebkitBackdropFilter: 'blur(4px)', // Fix on Mobile
-        bgcolor: (theme) => alpha(theme.palette.common.white, 0.04)
+        bgcolor: (theme) => alpha(theme.palette.common.white, 0.04),
       }}
     >
       <Typography variant="subtitle1" gutterBottom>
         {name}
       </Typography>
-      <Typography gutterBottom component="p" variant="caption" sx={{ color: 'grey.500' }}>
+      <Typography
+        gutterBottom
+        component="p"
+        variant="caption"
+        sx={{ color: 'grey.500' }}
+      >
         {dateCreate}
       </Typography>
       <Rating value={rating} readOnly size="small" />
@@ -124,7 +153,11 @@ export default function AboutTestimonials() {
           <Grid item xs={10} md={4}>
             <Box sx={{ maxWidth: { md: 360 } }}>
               <MotionInView variants={varFadeInUp}>
-                <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
+                <Typography
+                  component="p"
+                  variant="overline"
+                  sx={{ mb: 2, color: 'text.secondary' }}
+                >
                   Testimonials
                 </Typography>
               </MotionInView>
@@ -138,9 +171,10 @@ export default function AboutTestimonials() {
 
               <MotionInView variants={varFadeInUp}>
                 <Typography sx={{ color: 'common.white' }}>
-                  Our goal is to create a product and service that you’re satisfied with and use it every day. This is
-                  why we’re constantly working on our services to make it better every day and really listen to what our
-                  users has to say.
+                  Our goal is to create a product and service that you’re
+                  satisfied with and use it every day. This is why we’re
+                  constantly working on our services to make it better every day
+                  and really listen to what our users has to say.
                 </Typography>
               </MotionInView>
 
@@ -161,7 +195,7 @@ export default function AboutTestimonials() {
             lg={6}
             sx={{
               right: { md: 24 },
-              position: { md: 'absolute' }
+              position: { md: 'absolute' },
             }}
           >
             <Grid container spacing={isDesktop ? 3 : 0} alignItems="center">

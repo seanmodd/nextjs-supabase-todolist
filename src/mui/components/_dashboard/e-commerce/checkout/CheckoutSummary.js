@@ -15,7 +15,7 @@ import {
   InputAdornment,
 } from '@mui/material';
 // utils
-import { fCurrency } from '../src/mui/utils/formatNumber';
+import { fCurrency } from 'src/mui/utils/formatNumber';
 
 // ----------------------------------------------------------------------
 

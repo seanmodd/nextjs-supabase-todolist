@@ -25,8 +25,8 @@ import { fData } from 'src/mui/utils/formatNumber';
 import fakeRequest from 'src/mui/utils/fakeRequest';
 // routes
 //
-import Label from '../../../Label';
-import { UploadAvatar } from '../../../upload';
+import Label from 'src/mui/components/Label';
+import { UploadAvatar } from 'src/mui/components/upload';
 import countries from './countries';
 
 // ----------------------------------------------------------------------

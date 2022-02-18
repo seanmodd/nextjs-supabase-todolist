@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import { Divider, Box } from '@mui/material';
 // redux
+import Scrollbar from 'src/mui/components/Scrollbar';
 import { useDispatch, useSelector } from '../../../___redux/store';
 import { getMails } from '../../../___redux/slices/mail';
 //
-import Scrollbar from '../../../Scrollbar';
 import EmptyContent from '../../../EmptyContent';
 import MailItem from './MailItem';
 import MailToolbar from './MailToolbar';
@@ -19,13 +19,13 @@ const RootStyle = styled('div')({
   flexGrow: 1,
   display: 'flex',
   overflow: 'hidden',
-  flexDirection: 'column'
+  flexDirection: 'column',
 });
 
 // ----------------------------------------------------------------------
 
 MailList.propTypes = {
-  onOpenSidebar: PropTypes.func
+  onOpenSidebar: PropTypes.func,
 };
 
 export default function MailList({ onOpenSidebar }) {
@@ -62,7 +62,9 @@ export default function MailList({ onOpenSidebar }) {
   };
 
   const handleDeselectOneMail = (mailId) => {
-    setSelectedMails((prevSelectedMails) => prevSelectedMails.filter((id) => id !== mailId));
+    setSelectedMails((prevSelectedMails) =>
+      prevSelectedMails.filter((id) => id !== mailId)
+    );
   };
 
   return (

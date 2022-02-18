@@ -4,10 +4,19 @@ import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
 import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
 // material
 import { styled } from '@mui/material/styles';
-import { Box, List, Avatar, Button, Collapse, ListItemText, ListItemAvatar, ListItemButton } from '@mui/material';
+import {
+  Box,
+  List,
+  Avatar,
+  Button,
+  Collapse,
+  ListItemText,
+  ListItemAvatar,
+  ListItemButton,
+} from '@mui/material';
 //
-import Scrollbar from '../../../Scrollbar';
-import BadgeStatus from '../../../BadgeStatus';
+import Scrollbar from 'src/mui/components/Scrollbar';
+import BadgeStatus from 'src/mui/components/BadgeStatus';
 import ChatRoomPopup from './ChatRoomPopup';
 
 // ----------------------------------------------------------------------
@@ -20,7 +29,7 @@ const CollapseButtonStyle = styled(Button)(({ theme }) => ({
   borderRadius: 0,
   padding: theme.spacing(1, 2),
   justifyContent: 'space-between',
-  color: theme.palette.text.disabled
+  color: theme.palette.text.disabled,
 }));
 
 // ----------------------------------------------------------------------
@@ -29,7 +38,7 @@ Participant.propTypes = {
   participant: PropTypes.object.isRequired,
   isOpen: PropTypes.bool,
   onClosePopup: PropTypes.func,
-  onShowPopup: PropTypes.func
+  onShowPopup: PropTypes.func,
 };
 function Participant({ participant, isOpen, onClosePopup, onShowPopup }) {
   const { name, avatar, status, position } = participant;
@@ -40,7 +49,10 @@ function Participant({ participant, isOpen, onClosePopup, onShowPopup }) {
         <ListItemAvatar>
           <Box sx={{ position: 'relative', width: 40, height: 40 }}>
             <Avatar alt={name} src={avatar} />
-            <BadgeStatus status={status} sx={{ right: 0, bottom: 0, position: 'absolute' }} />
+            <BadgeStatus
+              status={status}
+              sx={{ right: 0, bottom: 0, position: 'absolute' }}
+            />
           </Box>
         </ListItemAvatar>
         <ListItemText
@@ -50,7 +62,11 @@ function Participant({ participant, isOpen, onClosePopup, onShowPopup }) {
           secondaryTypographyProps={{ noWrap: true }}
         />
       </ListItemButton>
-      <ChatRoomPopup participant={participant} isOpen={isOpen} onClose={onClosePopup} />
+      <ChatRoomPopup
+        participant={participant}
+        isOpen={isOpen}
+        onClose={onClosePopup}
+      />
     </>
   );
 }
@@ -60,7 +76,7 @@ ChatRoomGroupParticipant.propTypes = {
   selectUserId: PropTypes.string,
   onShowPopupUserInfo: PropTypes.func,
   isCollapse: PropTypes.bool,
-  onCollapse: PropTypes.func
+  onCollapse: PropTypes.func,
 };
 
 export default function ChatRoomGroupParticipant({
@@ -68,7 +84,7 @@ export default function ChatRoomGroupParticipant({
   selectUserId,
   onShowPopupUserInfo,
   isCollapse,
-  onCollapse
+  onCollapse,
 }) {
   return (
     <>
@@ -77,14 +93,23 @@ export default function ChatRoomGroupParticipant({
         disableRipple
         color="inherit"
         onClick={onCollapse}
-        endIcon={<Icon icon={isCollapse ? arrowIosDownwardFill : arrowIosForwardFill} width={16} height={16} />}
+        endIcon={
+          <Icon
+            icon={isCollapse ? arrowIosDownwardFill : arrowIosForwardFill}
+            width={16}
+            height={16}
+          />
+        }
       >
         In room ({participants.length})
       </CollapseButtonStyle>
 
       <Box sx={{ height: isCollapse ? HEIGHT * 4 : 0 }}>
         <Scrollbar>
-          <Collapse in={isCollapse} sx={{ height: isCollapse ? HEIGHT * 4 : 0 }}>
+          <Collapse
+            in={isCollapse}
+            sx={{ height: isCollapse ? HEIGHT * 4 : 0 }}
+          >
             <List disablePadding>
               {participants.map((participant) => (
                 <Participant

@@ -10,7 +10,7 @@ import { Box, Button, Divider, Collapse, Typography } from '@mui/material';
 import { fDateTime } from 'src/mui/utils/formatTime';
 import { getFileFullName, getFileThumb } from 'src/mui/utils/getFileFormat';
 //
-import Scrollbar from '../../../Scrollbar';
+import Scrollbar from 'src/mui/components/Scrollbar';
 
 // ----------------------------------------------------------------------
 
@@ -20,14 +20,14 @@ const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   overflow: 'hidden',
   flexDirection: 'column',
-  paddingBottom: theme.spacing(2)
+  paddingBottom: theme.spacing(2),
 }));
 
 const FileItemStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   marginTop: theme.spacing(2),
-  padding: theme.spacing(0, 2.5)
+  padding: theme.spacing(0, 2.5),
 }));
 
 const FileThumbStyle = styled('div')(({ theme }) => ({
@@ -40,7 +40,7 @@ const FileThumbStyle = styled('div')(({ theme }) => ({
   justifyContent: 'center',
   color: theme.palette.text.secondary,
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: theme.palette.grey[500_16]
+  backgroundColor: theme.palette.grey[500_16],
 }));
 
 const CollapseButtonStyle = styled(Button)(({ theme }) => ({
@@ -50,14 +50,14 @@ const CollapseButtonStyle = styled(Button)(({ theme }) => ({
   borderRadius: 0,
   padding: theme.spacing(1, 2),
   justifyContent: 'space-between',
-  color: theme.palette.text.disabled
+  color: theme.palette.text.disabled,
 }));
 
 // ----------------------------------------------------------------------
 
 AttachmentItem.propTypes = {
   file: PropTypes.object,
-  fileUrl: PropTypes.string
+  fileUrl: PropTypes.string,
 };
 
 function AttachmentItem({ file, fileUrl }) {
@@ -68,7 +68,11 @@ function AttachmentItem({ file, fileUrl }) {
         <Typography variant="body2" noWrap>
           {getFileFullName(fileUrl)}
         </Typography>
-        <Typography noWrap variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
+        <Typography
+          noWrap
+          variant="caption"
+          sx={{ color: 'text.secondary', display: 'block' }}
+        >
           {fDateTime(file.createdAt)}
         </Typography>
       </Box>
@@ -79,11 +83,18 @@ function AttachmentItem({ file, fileUrl }) {
 ChatRoomAttachment.propTypes = {
   conversation: PropTypes.object.isRequired,
   isCollapse: PropTypes.bool,
-  onCollapse: PropTypes.func
+  onCollapse: PropTypes.func,
 };
 
-export default function ChatRoomAttachment({ conversation, isCollapse, onCollapse, ...other }) {
-  const totalAttachment = uniq(flatten(conversation.messages.map((item) => item.attachments))).length;
+export default function ChatRoomAttachment({
+  conversation,
+  isCollapse,
+  onCollapse,
+  ...other
+}) {
+  const totalAttachment = uniq(
+    flatten(conversation.messages.map((item) => item.attachments))
+  ).length;
 
   return (
     <RootStyle {...other}>
@@ -91,7 +102,13 @@ export default function ChatRoomAttachment({ conversation, isCollapse, onCollaps
         fullWidth
         color="inherit"
         onClick={onCollapse}
-        endIcon={<Icon icon={isCollapse ? arrowIosDownwardFill : arrowIosForwardFill} width={16} height={16} />}
+        endIcon={
+          <Icon
+            icon={isCollapse ? arrowIosDownwardFill : arrowIosForwardFill}
+            width={16}
+            height={16}
+          />
+        }
       >
         attachment ({totalAttachment})
       </CollapseButtonStyle>

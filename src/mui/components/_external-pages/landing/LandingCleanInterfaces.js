@@ -2,15 +2,17 @@
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Container, Typography, useTheme } from '@mui/material';
 //
-import { varFadeInUp, MotionInView } from '../../animate';
+import { varFadeInUp, MotionInView } from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
-const IMG = [...Array(10)].map((_, index) => `/static/home/clean-${index + 1}.png`);
+const IMG = [...Array(10)].map(
+  (_, index) => `/static/home/clean-${index + 1}.png`
+);
 
 const RootStyle = styled('div')(({ theme }) => ({
   paddingTop: theme.spacing(15),
-  paddingBottom: theme.spacing(10)
+  paddingBottom: theme.spacing(10),
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -20,8 +22,8 @@ const ContentStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     zIndex: 11,
     textAlign: 'left',
-    position: 'absolute'
-  }
+    position: 'absolute',
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -35,7 +37,11 @@ export default function LandingCleanInterfaces() {
       <Container maxWidth="lg">
         <ContentStyle>
           <MotionInView variants={varFadeInUp}>
-            <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
+            <Typography
+              component="p"
+              variant="overline"
+              sx={{ mb: 2, color: 'text.secondary' }}
+            >
               clean & clear
             </Typography>
           </MotionInView>
@@ -46,8 +52,9 @@ export default function LandingCleanInterfaces() {
               paragraph
               sx={{
                 ...(!isLight && {
-                  textShadow: (theme) => `4px 4px 16px ${alpha(theme.palette.grey[800], 0.48)}`
-                })
+                  textShadow: (theme) =>
+                    `4px 4px 16px ${alpha(theme.palette.grey[800], 0.48)}`,
+                }),
               }}
             >
               Beautiful, modern and clean user interfaces
@@ -66,10 +73,13 @@ export default function LandingCleanInterfaces() {
                 left: 0,
                 position: 'absolute',
                 ...(index === 0 && { zIndex: 8 }),
-                ...(index === 9 && { position: 'relative', zIndex: 9 })
+                ...(index === 9 && { position: 'relative', zIndex: 9 }),
               }}
             >
-              <Box component="img" src={`/static/home/clean-${index + 1}.png`} />
+              <Box
+                component="img"
+                src={`/static/home/clean-${index + 1}.png`}
+              />
             </MotionInView>
           ))}
         </Box>

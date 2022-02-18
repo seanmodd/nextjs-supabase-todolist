@@ -6,7 +6,7 @@ import { forwardRef, useEffect, useCallback } from 'react';
 // material
 import { Box } from '@mui/material';
 // utils
-import track from 'src/otherComponents/utils/analytics';
+import track from 'src/mui/utils/analytics';
 
 // ----------------------------------------------------------------------
 

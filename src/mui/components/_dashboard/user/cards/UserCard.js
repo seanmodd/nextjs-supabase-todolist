@@ -17,9 +17,9 @@ import {
   IconButton,
 } from '@mui/material';
 // utils
-import { fShortenNumber } from '../src/mui/utils/formatNumber';
+import { fShortenNumber } from 'src/mui/utils/formatNumber';
 //
-import SvgIconStyle from '../../../../SvgIconStyle';
+import SvgIconStyle from 'src/mui/components/SvgIconStyle';
 
 // ----------------------------------------------------------------------
 

@@ -3,12 +3,21 @@ import { Icon } from '@iconify/react';
 import { Link as RouterLink } from 'next';
 import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
 // material
-import { Box, Stack, Link, Card, Button, Divider, Typography, CardHeader } from '@mui/material';
+import {
+  Box,
+  Stack,
+  Link,
+  Card,
+  Button,
+  Divider,
+  Typography,
+  CardHeader,
+} from '@mui/material';
 // utils
 import { fToNow } from 'src/mui/utils/formatTime';
 import mockData from 'src/mui/utils/mock-data';
 //
-import Scrollbar from '../../../Scrollbar';
+import Scrollbar from 'src/mui/components/Scrollbar';
 
 // ----------------------------------------------------------------------
 
@@ -17,7 +26,7 @@ const MOCK_NEWS = [...Array(5)].map((_, index) => ({
   title: mockData.text.title(index),
   description: mockData.text.description(index),
   image: mockData.image.cover(index),
-  postedAt: mockData.time(index)
+  postedAt: mockData.time(index),
 }));
 
 // ----------------------------------------------------------------------
@@ -28,8 +37,8 @@ NewsItem.propTypes = {
     description: PropTypes.string,
     image: PropTypes.string,
     postedAt: PropTypes.instanceOf(Date),
-    title: PropTypes.string
-  })
+    title: PropTypes.string,
+  }),
 };
 
 function NewsItem({ news }) {
@@ -37,7 +46,12 @@ function NewsItem({ news }) {
 
   return (
     <Stack direction="row" alignItems="center" spacing={2}>
-      <Box component="img" alt={title} src={image} sx={{ width: 48, height: 48, borderRadius: 1.5 }} />
+      <Box
+        component="img"
+        alt={title}
+        src={image}
+        sx={{ width: 48, height: 48, borderRadius: 1.5 }}
+      />
       <Box sx={{ minWidth: 240 }}>
         <Link component={RouterLink} href="#" color="inherit">
           <Typography variant="subtitle2" noWrap>
@@ -48,7 +62,10 @@ function NewsItem({ news }) {
           {description}
         </Typography>
       </Box>
-      <Typography variant="caption" sx={{ pr: 3, flexShrink: 0, color: 'text.secondary' }}>
+      <Typography
+        variant="caption"
+        sx={{ pr: 3, flexShrink: 0, color: 'text.secondary' }}
+      >
         {fToNow(postedAt)}
       </Typography>
     </Stack>

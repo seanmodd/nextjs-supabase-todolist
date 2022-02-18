@@ -18,10 +18,10 @@ import {
   MenuItem,
   CardHeader,
   Typography,
-  FormControlLabel
+  FormControlLabel,
 } from '@mui/material';
 //
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ const TASKS = [
   'Add SCSS and JS files if required',
   'Stakeholder Meeting',
   'Scoping & Estimations',
-  'Sprint Showcase'
+  'Sprint Showcase',
 ];
 
 // ----------------------------------------------------------------------
@@ -58,7 +58,7 @@ function MoreMenuButton() {
         anchorEl={anchorRef.current}
         onClose={handleClose}
         PaperProps={{
-          sx: { width: 200, maxWidth: '100%' }
+          sx: { width: 200, maxWidth: '100%' },
         }}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -96,7 +96,7 @@ function MoreMenuButton() {
 TaskItem.propTypes = {
   task: PropTypes.string,
   checked: PropTypes.bool,
-  formik: PropTypes.object
+  formik: PropTypes.object,
 };
 
 function TaskItem({ task, checked, formik, ...other }) {
@@ -105,15 +105,22 @@ function TaskItem({ task, checked, formik, ...other }) {
   return (
     <Stack direction="row" justifyContent="space-between" sx={{ py: 0.75 }}>
       <FormControlLabel
-        control={<Checkbox {...getFieldProps('checked')} value={task} checked={checked} {...other} />}
+        control={
+          <Checkbox
+            {...getFieldProps('checked')}
+            value={task}
+            checked={checked}
+            {...other}
+          />
+        }
         label={
           <Typography
             variant="body2"
             sx={{
               ...(checked && {
                 color: 'text.disabled',
-                textDecoration: 'line-through'
-              })
+                textDecoration: 'line-through',
+              }),
             }}
           >
             {task}
@@ -128,11 +135,11 @@ function TaskItem({ task, checked, formik, ...other }) {
 export default function AnalyticsTasks() {
   const formik = useFormik({
     initialValues: {
-      checked: [TASKS[2]]
+      checked: [TASKS[2]],
     },
     onSubmit: (values) => {
       // console.log(values);
-    }
+    },
   });
 
   const { values, handleSubmit } = formik;
@@ -144,7 +151,12 @@ export default function AnalyticsTasks() {
         <FormikProvider value={formik}>
           <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
             {TASKS.map((task) => (
-              <TaskItem key={task} task={task} formik={formik} checked={values.checked.includes(task)} />
+              <TaskItem
+                key={task}
+                task={task}
+                formik={formik}
+                checked={values.checked.includes(task)}
+              />
             ))}
           </Form>
         </FormikProvider>

@@ -7,13 +7,13 @@ import arrowIosBackFill from '@iconify/icons-eva/arrow-ios-back-fill';
 import { styled } from '@mui/material/styles';
 import { Box, Link, Button, Divider, Typography, Stack } from '@mui/material';
 // redux
+import { PATH_DASHBOARD } from 'src/mui/routes/paths';
+import { DialogAnimate } from 'src/mui/components/animate';
+import { OrderCompleteIllustration } from 'src/mui/assets';
 import { useDispatch } from '../../../../___redux/store';
 import { resetCart } from '../../../../___redux/slices/product';
 // routes
-import { PATH_DASHBOARD } from '../src/mui/routes/paths';
 //
-import { DialogAnimate } from '../../../animate';
-import { OrderCompleteIllustration } from '../../../../otherComponents/assets';
 
 // ----------------------------------------------------------------------
 

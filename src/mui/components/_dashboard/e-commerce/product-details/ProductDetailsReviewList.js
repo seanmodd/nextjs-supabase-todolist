@@ -17,8 +17,8 @@ import {
   Stack,
 } from '@mui/material';
 // utils
-import { fDate } from 'src/otherComponents/utils/formatTime';
-import { fShortenNumber } from 'src/otherComponents/utils/formatNumber';
+import { fDate } from 'src/mui/utils/formatTime';
+import { fShortenNumber } from 'src/mui/utils/formatNumber';
 
 // ----------------------------------------------------------------------
 
@@ -36,91 +36,85 @@ function ReviewItem({ review }) {
   };
 
   return (
-    <>
-      <ListItem
-        disableGutters
+    <ListItem
+      disableGutters
+      sx={{
+        mb: 5,
+        alignItems: 'flex-start',
+        flexDirection: { xs: 'column', sm: 'row' },
+      }}
+    >
+      <Box
         sx={{
-          mb: 5,
-          alignItems: 'flex-start',
-          flexDirection: { xs: 'column', sm: 'row' },
+          mr: 2,
+          display: 'flex',
+          alignItems: 'center',
+          mb: { xs: 2, sm: 0 },
+          minWidth: { xs: 160, md: 240 },
+          textAlign: { sm: 'center' },
+          flexDirection: { sm: 'column' },
         }}
       >
-        <Box
+        <Avatar
+          src={avatarUrl}
           sx={{
-            mr: 2,
-            display: 'flex',
-            alignItems: 'center',
-            mb: { xs: 2, sm: 0 },
-            minWidth: { xs: 160, md: 240 },
-            textAlign: { sm: 'center' },
-            flexDirection: { sm: 'column' },
+            mr: { xs: 2, sm: 0 },
+            mb: { sm: 2 },
+            width: { md: 64 },
+            height: { md: 64 },
           }}
-        >
-          <Avatar
-            src={avatarUrl}
-            sx={{
-              mr: { xs: 2, sm: 0 },
-              mb: { sm: 2 },
-              width: { md: 64 },
-              height: { md: 64 },
-            }}
-          />
-          <div>
-            <Typography variant="subtitle2" noWrap>
-              {name}
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{ color: 'text.secondary' }}
-              noWrap
-            >
-              {fDate(postedAt)}
-            </Typography>
-          </div>
-        </Box>
-
+        />
         <div>
-          <Rating size="small" value={rating} precision={0.1} readOnly />
+          <Typography variant="subtitle2" noWrap>
+            {name}
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }} noWrap>
+            {fDate(postedAt)}
+          </Typography>
+        </div>
+      </Box>
 
-          {isPurchased && (
-            <Typography
-              variant="caption"
-              sx={{
-                my: 1,
-                display: 'flex',
-                alignItems: 'center',
-                color: 'primary.main',
-              }}
-            >
-              <Icon icon={roundVerified} width={16} height={16} />
-              &nbsp;Verified purchase
+      <div>
+        <Rating size="small" value={rating} precision={0.1} readOnly />
+
+        {isPurchased && (
+          <Typography
+            variant="caption"
+            sx={{
+              my: 1,
+              display: 'flex',
+              alignItems: 'center',
+              color: 'primary.main',
+            }}
+          >
+            <Icon icon={roundVerified} width={16} height={16} />
+            &nbsp;Verified purchase
+          </Typography>
+        )}
+
+        <Typography variant="body2">{comment}</Typography>
+
+        <Stack mt={1} direction="row" alignItems="center" flexWrap="wrap">
+          {!isHelpful && (
+            <Typography variant="body2" sx={{ mr: 1 }}>
+              Was this review helpful to you?
             </Typography>
           )}
 
-          <Typography variant="body2">{comment}</Typography>
-
-          <Stack mt={1} direction="row" alignItems="center" flexWrap="wrap">
-            {!isHelpful && (
-              <Typography variant="body2" sx={{ mr: 1 }}>
-                Was this review helpful to you?
-              </Typography>
-            )}
-
-            <Button
-              size="small"
-              color="inherit"
-              startIcon={
-                <Icon icon={!isHelpful ? roundThumbUp : checkmarkFill} />
-              }
-              onClick={handleClickHelpful}
-            >
-              {isHelpful ? 'Helpful' : 'Thank'}(
-              {fShortenNumber(!isHelpful ? helpful : helpful + 1)})
-            </Button>
-          </Stack>
-        </div>
-      </ListItem>
-    </>
+          <Button
+            size="small"
+            color="inherit"
+            startIcon={
+              <Icon icon={!isHelpful ? roundThumbUp : checkmarkFill} />
+            }
+            onClick={handleClickHelpful}
+          >
+            {isHelpful ? 'Helpful' : 'Thank'}(
+            {fShortenNumber(!isHelpful ? helpful : helpful + 1)})
+          </Button>
+        </Stack>
+      </div>
+    </ListItem>
   );
 }
 

@@ -17,10 +17,10 @@ import {
   IconButton,
   FormControl,
   OutlinedInput,
-  InputAdornment
+  InputAdornment,
 } from '@mui/material';
 //
-import { MHidden } from '../../@material-extend';
+import { MHidden } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 
@@ -29,24 +29,24 @@ const RootStyle = styled('div')(({ theme }) => ({
   flexShrink: 0,
   display: 'flex',
   alignItems: 'center',
-  padding: theme.spacing(0, 2)
+  padding: theme.spacing(0, 2),
 }));
 
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
   transition: theme.transitions.create(['box-shadow', 'width'], {
     easing: theme.transitions.easing.easeInOut,
-    duration: theme.transitions.duration.shorter
+    duration: theme.transitions.duration.shorter,
   }),
   '&.Mui-focused': { boxShadow: theme.customShadows.z8 },
   '& fieldset': {
     borderWidth: `1px !important`,
-    borderColor: `${theme.palette.grey[500_32]} !important`
+    borderColor: `${theme.palette.grey[500_32]} !important`,
   },
   [theme.breakpoints.up('md')]: {
     width: 240,
     flexDirection: 'row',
-    '&.Mui-focused': { width: 280 }
-  }
+    '&.Mui-focused': { width: 280 },
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -57,7 +57,7 @@ MailToolbar.propTypes = {
   onOpenSidebar: PropTypes.func,
   onToggleDense: PropTypes.func,
   onSelectAll: PropTypes.func,
-  onDeselectAll: PropTypes.func
+  onDeselectAll: PropTypes.func,
 };
 
 export default function MailToolbar({
@@ -69,7 +69,8 @@ export default function MailToolbar({
   onDeselectAll,
   ...other
 }) {
-  const handleSelectChange = (event) => (event.target.checked ? onSelectAll() : onDeselectAll());
+  const handleSelectChange = (event) =>
+    event.target.checked ? onSelectAll() : onDeselectAll();
 
   const selectedAllMails = selectedMails === mails && mails > 0;
   const selectedSomeMails = selectedMails > 0 && selectedMails < mails;
@@ -83,7 +84,11 @@ export default function MailToolbar({
       </MHidden>
 
       <MHidden width="smDown">
-        <Checkbox checked={selectedAllMails} indeterminate={selectedSomeMails} onChange={handleSelectChange} />
+        <Checkbox
+          checked={selectedAllMails}
+          indeterminate={selectedSomeMails}
+          onChange={handleSelectChange}
+        />
         <Tooltip title="Refresh">
           <IconButton>
             <Icon icon={refreshFill} width={20} height={20} />
@@ -108,7 +113,11 @@ export default function MailToolbar({
           placeholder="Search mail…"
           startAdornment={
             <InputAdornment position="start">
-              <Box component={Icon} icon={searchFill} sx={{ color: 'text.disabled' }} />
+              <Box
+                component={Icon}
+                icon={searchFill}
+                sx={{ color: 'text.disabled' }}
+              />
             </InputAdornment>
           }
         />

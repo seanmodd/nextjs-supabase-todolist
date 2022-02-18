@@ -6,10 +6,10 @@ import plusFill from '@iconify/icons-eva/plus-fill';
 // material
 import { Box, List, Drawer, Button, Divider } from '@mui/material';
 // redux
+import { MHidden } from 'src/mui/components/@material-extend';
+import Scrollbar from 'src/mui/components/Scrollbar';
 import { useSelector } from '../../../___redux/store';
 //
-import Scrollbar from '../../../Scrollbar';
-import { MHidden } from '../../@material-extend';
 import MailSidebarItem from './MailSidebarItem';
 
 // ----------------------------------------------------------------------

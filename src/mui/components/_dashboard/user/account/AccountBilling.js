@@ -8,7 +8,7 @@ import { Box, Grid, Card, Button, Typography, Stack } from '@mui/material';
 // import { useSelector } from 'react-redux';
 import { useSelector } from 'src/___redux/customStore';
 // utils
-import fakeRequest from 'src/otherComponents/utils/fakeRequest';
+import fakeRequest from 'src/mui/utils/fakeRequest';
 //
 import AccountBillingAddressBook from './AccountBillingAddressBook';
 import AccountBillingPaymentMethod from './AccountBillingPaymentMethod';

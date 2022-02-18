@@ -9,10 +9,18 @@ import calendarFill from '@iconify/icons-eva/calendar-fill';
 import radioButtonOffOutline from '@iconify/icons-eva/radio-button-off-outline';
 import checkmarkCircle2Outline from '@iconify/icons-eva/checkmark-circle-2-outline';
 // material
-import { Paper, Stack, Tooltip, Checkbox, Box, OutlinedInput, ClickAwayListener } from '@mui/material';
+import {
+  Paper,
+  Stack,
+  Tooltip,
+  Checkbox,
+  Box,
+  OutlinedInput,
+  ClickAwayListener,
+} from '@mui/material';
 import { MobileDateRangePicker } from '@mui/lab';
 //
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +29,7 @@ const defaultTask = {
   comments: [],
   description: '',
   due: [null, null],
-  assignee: []
+  assignee: [],
 };
 
 export function useDatePicker({ date }) {
@@ -55,7 +63,7 @@ export function useDatePicker({ date }) {
     onChangeDueDate: handleChangeDueDate,
     openPicker,
     onOpenPicker: handleOpenPicker,
-    onClosePicker: handleClosePicker
+    onClosePicker: handleClosePicker,
   };
 }
 
@@ -63,16 +71,31 @@ DisplayTime.propTypes = {
   isSameDays: PropTypes.bool,
   isSameMonths: PropTypes.bool,
   onOpenPicker: PropTypes.func,
-  startTime: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
-  endTime: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.instanceOf(Date)]),
-  sx: PropTypes.object
+  startTime: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.instanceOf(Date),
+  ]),
+  endTime: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.instanceOf(Date),
+  ]),
+  sx: PropTypes.object,
 };
 
-export function DisplayTime({ startTime, endTime, isSameDays, isSameMonths, onOpenPicker, sx }) {
+export function DisplayTime({
+  startTime,
+  endTime,
+  isSameDays,
+  isSameMonths,
+  onOpenPicker,
+  sx,
+}) {
   const style = {
     typography: 'caption',
     cursor: 'pointer',
-    '&:hover': { opacity: 0.72 }
+    '&:hover': { opacity: 0.72 },
   };
 
   if (isSameMonths) {
@@ -80,20 +103,24 @@ export function DisplayTime({ startTime, endTime, isSameDays, isSameMonths, onOp
       <Box onClick={onOpenPicker} sx={{ ...style, ...sx }}>
         {isSameDays
           ? format(new Date(endTime), 'dd MMM')
-          : `${format(new Date(startTime), 'dd')} - ${format(new Date(endTime), 'dd MMM')}`}
+          : `${format(new Date(startTime), 'dd')} - ${format(
+              new Date(endTime),
+              'dd MMM'
+            )}`}
       </Box>
     );
   }
   return (
     <Box onClick={onOpenPicker} sx={{ ...style, ...sx }}>
-      {format(new Date(startTime), 'dd MMM')} - {format(new Date(endTime), 'dd MMM')}
+      {format(new Date(startTime), 'dd MMM')} -{' '}
+      {format(new Date(endTime), 'dd MMM')}
     </Box>
   );
 }
 
 KanbanTaskAdd.propTypes = {
   onAddTask: PropTypes.func,
-  onCloseAddTask: PropTypes.func
+  onCloseAddTask: PropTypes.func,
 };
 
 export default function KanbanTaskAdd({ onAddTask, onCloseAddTask }) {
@@ -108,22 +135,34 @@ export default function KanbanTaskAdd({ onAddTask, onCloseAddTask }) {
     onChangeDueDate,
     openPicker,
     onOpenPicker,
-    onClosePicker
+    onClosePicker,
   } = useDatePicker({
-    date: [null, null]
+    date: [null, null],
   });
 
   const handleKeyUpAddTask = (event) => {
     if (event.key === 'Enter') {
       if (trim(name) !== '') {
-        onAddTask({ ...defaultTask, id: uuidv4(), name, due: dueDate, completed });
+        onAddTask({
+          ...defaultTask,
+          id: uuidv4(),
+          name,
+          due: dueDate,
+          completed,
+        });
       }
     }
   };
 
   const handleClickAddTask = () => {
     if (name) {
-      onAddTask({ ...defaultTask, id: uuidv4(), name, due: dueDate, completed });
+      onAddTask({
+        ...defaultTask,
+        id: uuidv4(),
+        name,
+        due: dueDate,
+        completed,
+      });
     }
     onCloseAddTask();
   };
@@ -133,68 +172,66 @@ export default function KanbanTaskAdd({ onAddTask, onCloseAddTask }) {
   };
 
   return (
-    <>
-      <ClickAwayListener onClickAway={handleClickAddTask}>
-        <Paper variant="outlined" sx={{ p: 2 }}>
-          <OutlinedInput
-            multiline
-            size="small"
-            placeholder="Task name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            onKeyUp={handleKeyUpAddTask}
-            sx={{
-              '& input': { p: 0 },
-              '& fieldset': { borderColor: 'transparent !important' }
-            }}
-          />
+    <ClickAwayListener onClickAway={handleClickAddTask}>
+      <Paper variant="outlined" sx={{ p: 2 }}>
+        <OutlinedInput
+          multiline
+          size="small"
+          placeholder="Task name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          onKeyUp={handleKeyUpAddTask}
+          sx={{
+            '& input': { p: 0 },
+            '& fieldset': { borderColor: 'transparent !important' },
+          }}
+        />
 
-          <Stack direction="row" justifyContent="space-between">
-            <Tooltip title="Mark task complete">
-              <Checkbox
-                disableRipple
-                checked={completed}
-                onChange={handleChangeCompleted}
-                icon={<Icon icon={radioButtonOffOutline} />}
-                checkedIcon={<Icon icon={checkmarkCircle2Outline} />}
-              />
+        <Stack direction="row" justifyContent="space-between">
+          <Tooltip title="Mark task complete">
+            <Checkbox
+              disableRipple
+              checked={completed}
+              onChange={handleChangeCompleted}
+              icon={<Icon icon={radioButtonOffOutline} />}
+              checkedIcon={<Icon icon={checkmarkCircle2Outline} />}
+            />
+          </Tooltip>
+
+          <Stack direction="row" spacing={1.5} alignItems="center">
+            <Tooltip title="Assign this task">
+              <MIconButton size="small">
+                <Icon icon={peopleFill} width={20} height={20} />
+              </MIconButton>
             </Tooltip>
 
-            <Stack direction="row" spacing={1.5} alignItems="center">
-              <Tooltip title="Assign this task">
-                <MIconButton size="small">
-                  <Icon icon={peopleFill} width={20} height={20} />
+            {startTime && endTime ? (
+              <DisplayTime
+                startTime={startTime}
+                endTime={endTime}
+                isSameDays={isSameDays}
+                isSameMonths={isSameMonths}
+                onOpenPicker={onOpenPicker}
+              />
+            ) : (
+              <Tooltip title="Add due date">
+                <MIconButton size="small" onClick={onOpenPicker}>
+                  <Icon icon={calendarFill} width={20} height={20} />
                 </MIconButton>
               </Tooltip>
+            )}
 
-              {startTime && endTime ? (
-                <DisplayTime
-                  startTime={startTime}
-                  endTime={endTime}
-                  isSameDays={isSameDays}
-                  isSameMonths={isSameMonths}
-                  onOpenPicker={onOpenPicker}
-                />
-              ) : (
-                <Tooltip title="Add due date">
-                  <MIconButton size="small" onClick={onOpenPicker}>
-                    <Icon icon={calendarFill} width={20} height={20} />
-                  </MIconButton>
-                </Tooltip>
-              )}
-
-              <MobileDateRangePicker
-                open={openPicker}
-                onClose={onClosePicker}
-                onOpen={onOpenPicker}
-                value={dueDate}
-                onChange={onChangeDueDate}
-                renderInput={() => {}}
-              />
-            </Stack>
+            <MobileDateRangePicker
+              open={openPicker}
+              onClose={onClosePicker}
+              onOpen={onOpenPicker}
+              value={dueDate}
+              onChange={onChangeDueDate}
+              renderInput={() => {}}
+            />
           </Stack>
-        </Paper>
-      </ClickAwayListener>
-    </>
+        </Stack>
+      </Paper>
+    </ClickAwayListener>
   );
 }

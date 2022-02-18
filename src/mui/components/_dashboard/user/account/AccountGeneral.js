@@ -20,7 +20,7 @@ import useAuth from 'src/mui/hooks/useAuth';
 import useIsMountedRef from 'src/mui/hooks/useIsMountedRef';
 import { UploadAvatar } from 'src/mui/components/upload';
 // utils
-import { fData } from 'src/otherComponents/utils/formatNumber';
+import { fData } from 'src/mui/utils/formatNumber';
 //
 import { countries } from 'src/mui/components/map/assets/countries';
 import { USER_DATA } from 'src/utils/callbacks';

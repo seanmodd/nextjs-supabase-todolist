@@ -12,11 +12,11 @@ import {
   RadioGroup,
   DialogTitle,
   DialogActions,
-  FormControlLabel
+  FormControlLabel,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 //
-import { DialogAnimate } from '../../../animate';
+import { DialogAnimate } from 'src/mui/components/animate';
 import countries from './countries';
 
 // ----------------------------------------------------------------------
@@ -25,17 +25,22 @@ CheckoutNewAddressForm.propTypes = {
   open: PropTypes.bool,
   onClose: PropTypes.func,
   onNextStep: PropTypes.func,
-  onCreateBilling: PropTypes.func
+  onCreateBilling: PropTypes.func,
 };
 
-export default function CheckoutNewAddressForm({ open, onClose, onNextStep, onCreateBilling }) {
+export default function CheckoutNewAddressForm({
+  open,
+  onClose,
+  onNextStep,
+  onCreateBilling,
+}) {
   const NewAddressSchema = Yup.object().shape({
     receiver: Yup.string().required('Fullname is required'),
     phone: Yup.string().required('Phone is required'),
     address: Yup.string().required('Address is required'),
     city: Yup.string().required('City is required'),
     state: Yup.string().required('State is required'),
-    country: Yup.string().required('State is required')
+    country: Yup.string().required('State is required'),
   });
 
   const formik = useFormik({
@@ -48,7 +53,7 @@ export default function CheckoutNewAddressForm({ open, onClose, onNextStep, onCr
       state: '',
       country: countries[0].label,
       zipcode: '',
-      isDefault: true
+      isDefault: true,
     },
     validationSchema: NewAddressSchema,
     onSubmit: async (values, { setSubmitting }) => {
@@ -60,16 +65,17 @@ export default function CheckoutNewAddressForm({ open, onClose, onNextStep, onCr
           phone: values.phone,
           fullAddress: `${values.address}, ${values.city}, ${values.state}, ${values.country}, ${values.zipcode}`,
           addressType: values.addressType,
-          isDefault: values.isDefault
+          isDefault: values.isDefault,
         });
       } catch (error) {
         console.error(error);
         setSubmitting(false);
       }
-    }
+    },
   });
 
-  const { errors, values, touched, isSubmitting, handleSubmit, getFieldProps } = formik;
+  const { errors, values, touched, isSubmitting, handleSubmit, getFieldProps } =
+    formik;
 
   return (
     <DialogAnimate maxWidth="sm" open={open} onClose={onClose}>
@@ -78,8 +84,17 @@ export default function CheckoutNewAddressForm({ open, onClose, onNextStep, onCr
         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
           <Stack spacing={{ xs: 2, sm: 3 }} sx={{ p: 3 }}>
             <RadioGroup row {...getFieldProps('addressType')}>
-              <FormControlLabel value="Home" control={<Radio />} label="Home" sx={{ mr: 2 }} />
-              <FormControlLabel value="Office" control={<Radio />} label="Office" />
+              <FormControlLabel
+                value="Home"
+                control={<Radio />}
+                label="Home"
+                sx={{ mr: 2 }}
+              />
+              <FormControlLabel
+                value="Office"
+                control={<Radio />}
+                label="Office"
+              />
             </RadioGroup>
 
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
@@ -151,7 +166,12 @@ export default function CheckoutNewAddressForm({ open, onClose, onNextStep, onCr
             </TextField>
 
             <FormControlLabel
-              control={<Checkbox checked={values.isDefault} {...getFieldProps('isDefault')} />}
+              control={
+                <Checkbox
+                  checked={values.isDefault}
+                  {...getFieldProps('isDefault')}
+                />
+              }
               label="Use this address as default."
               sx={{ mt: 3 }}
             />
@@ -160,10 +180,19 @@ export default function CheckoutNewAddressForm({ open, onClose, onNextStep, onCr
           <Divider />
 
           <DialogActions>
-            <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
+            <LoadingButton
+              type="submit"
+              variant="contained"
+              loading={isSubmitting}
+            >
               Deliver to this Address
             </LoadingButton>
-            <Button type="button" color="inherit" variant="outlined" onClick={onClose}>
+            <Button
+              type="button"
+              color="inherit"
+              variant="outlined"
+              onClick={onClose}
+            >
               Cancel
             </Button>
           </DialogActions>

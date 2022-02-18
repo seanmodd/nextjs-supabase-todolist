@@ -18,7 +18,7 @@ import {
 import { fDateTime } from 'src/mui/utils/formatTime';
 import mockData from 'src/mui/utils/mock-data';
 //
-import Label from '../../../Label';
+import Label from 'src/mui/components/Label';
 import { CarouselControlsArrowsBasic1 } from '../../carousel';
 
 // ----------------------------------------------------------------------

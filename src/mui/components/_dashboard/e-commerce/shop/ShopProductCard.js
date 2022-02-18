@@ -9,13 +9,12 @@ import { styled } from '@mui/material/styles';
 // routes
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 // utils
-import { fCurrency } from 'src/otherComponents/utils/formatNumber';
+import { fCurrency } from 'src/mui/utils/formatNumber';
 //
 import axios from 'axios';
 import Router from 'next/router';
 import useAuth from 'src/mui/hooks/useAuth';
-import { setSnackbar } from 'src/otherContexts/actions';
-import { UserContext, FeedbackContext } from 'src/otherContexts';
+import { UserContext, FeedbackContext } from 'src/mui/contexts';
 import { USER_DATA, USER_FAVORITE_DATA } from 'src/utils/callbacks';
 import { CircularProgress } from '@material-ui/core';
 import { useSnackbar } from 'notistack';
@@ -26,7 +25,7 @@ import {
   deleteItemFromFavoriteList,
   saveItemToFavoriteList,
 } from 'src/utils/localstorage';
-import Label from '../../../../Label';
+import Label from 'src/mui/components/Label';
 
 // import ColorPreview from '../../../ColorPreview';
 // ----------------------------------------------------------------------

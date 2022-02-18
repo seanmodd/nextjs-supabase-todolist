@@ -9,9 +9,9 @@ import closeFill from '@iconify/icons-eva/close-fill';
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Paper } from '@mui/material';
 // utils
-import { MIconButton } from '../../@material-extend';
-import { varFadeInRight } from '../../animate';
-import LightboxModal from '../../../LightboxModal';
+import { MIconButton } from 'src/mui/components/@material-extend';
+import { varFadeInRight } from 'src/mui/components/animate';
+import LightboxModal from 'src/mui/components/LightboxModal';
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ const DropZoneStyle = styled('div')(({ theme }) => ({
   margin: theme.spacing(0.5),
   borderRadius: theme.shape.borderRadius,
   border: `dashed 1px ${theme.palette.divider}`,
-  '&:hover': { opacity: 0.72 }
+  '&:hover': { opacity: 0.72 },
 }));
 
 // ----------------------------------------------------------------------
@@ -44,7 +44,7 @@ function UploadFile() {
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
-            preview: URL.createObjectURL(file)
+            preview: URL.createObjectURL(file),
           })
         )
       );
@@ -53,7 +53,7 @@ function UploadFile() {
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: handleDrop
+    onDrop: handleDrop,
   });
 
   return (
@@ -73,14 +73,19 @@ function UploadFile() {
               height: 64,
               borderRadius: 1,
               overflow: 'hidden',
-              position: 'relative'
+              position: 'relative',
             }}
           >
             <Paper
               variant="outlined"
               component="img"
               src={isString(file) ? file : preview}
-              sx={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute' }}
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                position: 'absolute',
+              }}
             />
             <Box sx={{ top: 6, right: 6, position: 'absolute' }}>
               <MIconButton
@@ -91,8 +96,8 @@ function UploadFile() {
                   color: 'common.white',
                   bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
                   '&:hover': {
-                    bgcolor: (theme) => alpha(theme.palette.grey[900], 0.48)
-                  }
+                    bgcolor: (theme) => alpha(theme.palette.grey[900], 0.48),
+                  },
                 }}
               >
                 <Icon icon={closeFill} />
@@ -105,19 +110,23 @@ function UploadFile() {
       <DropZoneStyle
         {...getRootProps()}
         sx={{
-          ...(isDragActive && { opacity: 0.72 })
+          ...(isDragActive && { opacity: 0.72 }),
         }}
       >
         <input {...getInputProps()} />
 
-        <Box component={Icon} icon={plusFill} sx={{ color: 'text.secondary' }} />
+        <Box
+          component={Icon}
+          icon={plusFill}
+          sx={{ color: 'text.secondary' }}
+        />
       </DropZoneStyle>
     </>
   );
 }
 
 KanbanTaskAttachments.propTypes = {
-  attachments: PropTypes.array.isRequired
+  attachments: PropTypes.array.isRequired,
 };
 
 export default function KanbanTaskAttachments({ attachments }) {
@@ -144,7 +153,14 @@ export default function KanbanTaskAttachments({ attachments }) {
           key={attachment}
           src={attachment}
           onClick={() => handleOpenLightbox(attachment)}
-          sx={{ width: 64, height: 64, objectFit: 'cover', cursor: 'pointer', borderRadius: 1, m: 0.5 }}
+          sx={{
+            width: 64,
+            height: 64,
+            objectFit: 'cover',
+            cursor: 'pointer',
+            borderRadius: 1,
+            m: 0.5,
+          }}
         />
       ))}
 

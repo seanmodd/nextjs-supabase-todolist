@@ -9,7 +9,7 @@ import { LoadingButton } from '@mui/lab';
 // routes
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 // utils
-import fakeRequest from 'src/otherComponents/utils/fakeRequest';
+import fakeRequest from 'src/mui/utils/fakeRequest';
 
 // ----------------------------------------------------------------------
 

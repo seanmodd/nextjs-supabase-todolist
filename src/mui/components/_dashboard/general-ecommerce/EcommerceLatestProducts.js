@@ -7,7 +7,7 @@ import { Box, Link, Card, CardHeader, Typography, Stack } from '@mui/material';
 import { fCurrency } from 'src/mui/utils/formatNumber';
 import mockData from 'src/mui/utils/mock-data';
 //
-import Scrollbar from '../../../Scrollbar';
+import Scrollbar from 'src/mui/components/Scrollbar';
 // import ColorPreview from '../../ColorPreview';
 
 // ----------------------------------------------------------------------

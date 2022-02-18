@@ -8,9 +8,15 @@ import attach2Fill from '@iconify/icons-eva/attach-2-fill';
 import roundAddPhotoAlternate from '@iconify/icons-ic/round-add-photo-alternate';
 // material
 import { styled } from '@mui/material/styles';
-import { Input, Divider, IconButton, InputAdornment, Stack } from '@mui/material';
+import {
+  Input,
+  Divider,
+  IconButton,
+  InputAdornment,
+  Stack,
+} from '@mui/material';
 //
-import EmojiPicker from '../../../EmojiPicker';
+import EmojiPicker from 'src/mui/components/EmojiPicker';
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +25,7 @@ const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   position: 'relative',
   alignItems: 'center',
-  paddingLeft: theme.spacing(2)
+  paddingLeft: theme.spacing(2),
 }));
 
 // ----------------------------------------------------------------------
@@ -27,10 +33,15 @@ const RootStyle = styled('div')(({ theme }) => ({
 ChatMessageInput.propTypes = {
   disabled: PropTypes.bool,
   conversationId: PropTypes.string,
-  onSend: PropTypes.func
+  onSend: PropTypes.func,
 };
 
-export default function ChatMessageInput({ disabled, conversationId, onSend, ...other }) {
+export default function ChatMessageInput({
+  disabled,
+  conversationId,
+  onSend,
+  ...other
+}) {
   const fileInputRef = useRef(null);
   const [message, setMessage] = useState('');
 
@@ -60,7 +71,7 @@ export default function ChatMessageInput({ disabled, conversationId, onSend, ...
         contentType: 'text',
         attachments: [],
         createdAt: new Date(),
-        senderId: '8864c717-587d-472a-929a-8e5f298024da-0'
+        senderId: '8864c717-587d-472a-929a-8e5f298024da-0',
       });
     }
     return setMessage('');
@@ -78,7 +89,11 @@ export default function ChatMessageInput({ disabled, conversationId, onSend, ...
         placeholder="Type a message"
         startAdornment={
           <InputAdornment position="start">
-            <EmojiPicker disabled={disabled} value={message} setValue={setMessage} />
+            <EmojiPicker
+              disabled={disabled}
+              value={message}
+              setValue={setMessage}
+            />
           </InputAdornment>
         }
         endAdornment={
@@ -99,7 +114,12 @@ export default function ChatMessageInput({ disabled, conversationId, onSend, ...
 
       <Divider orientation="vertical" flexItem />
 
-      <IconButton color="primary" disabled={!message} onClick={handleSend} sx={{ mx: 1 }}>
+      <IconButton
+        color="primary"
+        disabled={!message}
+        onClick={handleSend}
+        sx={{ mx: 1 }}
+      >
         <Icon icon={roundSend} width={24} height={24} />
       </IconButton>
 

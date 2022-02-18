@@ -5,7 +5,7 @@ import { Box, Typography } from '@mui/material';
 // hooks
 import useAuth from 'src/mui/hooks/useAuth';
 //
-import MyAvatar from '../../../../MyAvatar';
+import MyAvatar from 'src/mui/components/MyAvatar';
 
 // ----------------------------------------------------------------------
 

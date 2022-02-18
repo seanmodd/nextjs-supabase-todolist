@@ -33,9 +33,9 @@ import {
 // utils
 import mockData from 'src/mui/utils/mock-data';
 //
-import Label from '../../../Label';
-import Scrollbar from '../../../Scrollbar';
-import { MIconButton } from '../../@material-extend';
+import { MIconButton } from 'src/mui/components/@material-extend';
+import Scrollbar from 'src/mui/components/Scrollbar';
+import Label from 'src/mui/components/Label';
 
 // ----------------------------------------------------------------------
 

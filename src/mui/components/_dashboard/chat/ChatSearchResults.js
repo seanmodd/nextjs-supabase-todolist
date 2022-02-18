@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { List, Avatar, Typography, ListItemText, ListItemAvatar, ListItemButton } from '@mui/material';
 //
-import SearchNotFound from '../../../SearchNotFound';
+import SearchNotFound from 'src/mui/components/SearchNotFound';
 
 // ----------------------------------------------------------------------
 

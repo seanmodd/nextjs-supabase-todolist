@@ -17,13 +17,13 @@ import {
   IconButton,
   ListItemText,
   ListItemIcon,
-  ListItemButton
+  ListItemButton,
 } from '@mui/material';
 // hooks
-import useAuth from '../../../hooks/useAuth';
+import useAuth from 'src/mui/hooks/useAuth';
 //
-import MyAvatar from '../../../MyAvatar';
-import BadgeStatus from '../../../BadgeStatus';
+import MyAvatar from 'src/mui/components/MyAvatar';
+import BadgeStatus from 'src/mui/components/BadgeStatus';
 
 // ----------------------------------------------------------------------
 
@@ -50,8 +50,14 @@ export default function ChatAccount() {
   return (
     <>
       <Box ref={anchorRef} sx={{ position: 'relative' }}>
-        <MyAvatar onClick={handleOpen} sx={{ cursor: 'pointer', width: 48, height: 48 }} />
-        <BadgeStatus status={status} sx={{ position: 'absolute', bottom: 2, right: 2 }} />
+        <MyAvatar
+          onClick={handleOpen}
+          sx={{ cursor: 'pointer', width: 48, height: 48 }}
+        />
+        <BadgeStatus
+          status={status}
+          sx={{ position: 'absolute', bottom: 2, right: 2 }}
+        />
       </Box>
 
       <Popover
@@ -61,7 +67,9 @@ export default function ChatAccount() {
         anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
         transformOrigin={{ vertical: 'top', horizontal: 'left' }}
       >
-        <Box sx={{ py: 2, pr: 1, pl: 2.5, display: 'flex', alignItems: 'center' }}>
+        <Box
+          sx={{ py: 2, pr: 1, pl: 2.5, display: 'flex', alignItems: 'center' }}
+        >
           <MyAvatar />
 
           <Box sx={{ ml: 2, mr: 3 }}>
@@ -95,7 +103,7 @@ export default function ChatAccount() {
                 sx={{
                   '& svg': { display: `none` },
                   '& select': { p: 0, typography: 'body2' },
-                  '& fieldset': { display: 'none' }
+                  '& fieldset': { display: 'none' },
                 }}
               >
                 {STATUS.map((option) => (
@@ -111,14 +119,20 @@ export default function ChatAccount() {
             <ListItemIcon>
               <Icon icon={roundAccountBox} width={24} height={24} />
             </ListItemIcon>
-            <ListItemText primary="Profile" primaryTypographyProps={{ variant: 'body2' }} />
+            <ListItemText
+              primary="Profile"
+              primaryTypographyProps={{ variant: 'body2' }}
+            />
           </ListItemButton>
 
           <ListItemButton sx={{ px: 2.5 }}>
             <ListItemIcon>
               <Icon icon={settings2Fill} width={24} height={24} />
             </ListItemIcon>
-            <ListItemText primary="Settings" primaryTypographyProps={{ variant: 'body2' }} />
+            <ListItemText
+              primary="Settings"
+              primaryTypographyProps={{ variant: 'body2' }}
+            />
           </ListItemButton>
         </List>
       </Popover>

@@ -1,5 +1,5 @@
 // utils
-import mockData from 'src/otherComponents/utils/mock-data';
+import mockData from 'src/mui/utils/mock-data';
 
 // ----------------------------------------------------------------------
 

@@ -9,18 +9,25 @@ import { CardContent, Box, Card, Typography } from '@mui/material';
 // utils
 import mockData from 'src/mui/utils/mock-data';
 //
-import { varFadeInRight, MotionContainer } from '../../animate';
-import { CarouselControlsPaging1, CarouselControlsArrowsBasic1 } from '../../carousel';
+import { varFadeInRight, MotionContainer } from 'src/mui/components/animate';
+import {
+  CarouselControlsPaging1,
+  CarouselControlsArrowsBasic1,
+} from '../../carousel';
 
 // ----------------------------------------------------------------------
 
-const TITLES = ['Harry Potter and the Deathly Hallows - Part 2', 'Disney Zombies 2', 'Lightroom mobile - Koloro'];
+const TITLES = [
+  'Harry Potter and the Deathly Hallows - Part 2',
+  'Disney Zombies 2',
+  'Lightroom mobile - Koloro',
+];
 
 const MOCK_APPS = [...Array(3)].map((_, index) => ({
   id: mockData.id(index),
   title: TITLES[index],
   description: mockData.text.title(index),
-  image: mockData.image.feed(index)
+  image: mockData.image.feed(index),
 }));
 
 const CarouselImgStyle = styled('img')(({ theme }) => ({
@@ -28,15 +35,15 @@ const CarouselImgStyle = styled('img')(({ theme }) => ({
   width: '100%',
   objectFit: 'cover',
   [theme.breakpoints.up('xl')]: {
-    height: 320
-  }
+    height: 320,
+  },
 }));
 
 // ----------------------------------------------------------------------
 
 CarouselItem.propTypes = {
   item: PropTypes.object,
-  isActive: PropTypes.bool
+  isActive: PropTypes.bool,
 };
 
 function CarouselItem({ item, isActive }) {
@@ -51,7 +58,7 @@ function CarouselItem({ item, isActive }) {
             width: 1,
             height: 1,
             position: 'absolute',
-            bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72)
+            bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
           }}
         />
         <CarouselImgStyle alt={title} src={image} />
@@ -61,7 +68,7 @@ function CarouselItem({ item, isActive }) {
             width: 1,
             textAlign: 'left',
             position: 'absolute',
-            color: 'common.white'
+            color: 'common.white',
           }}
         >
           <MotionContainer open={isActive}>
@@ -71,7 +78,7 @@ function CarouselItem({ item, isActive }) {
                 sx={{
                   mb: 1,
                   opacity: 0.48,
-                  display: 'block'
+                  display: 'block',
                 }}
               >
                 Featured App
@@ -97,7 +104,9 @@ function CarouselItem({ item, isActive }) {
 export default function AppFeatured() {
   const theme = useTheme();
   const carouselRef = useRef();
-  const [currentIndex, setCurrentIndex] = useState(theme.direction === 'rtl' ? MOCK_APPS.length - 1 : 0);
+  const [currentIndex, setCurrentIndex] = useState(
+    theme.direction === 'rtl' ? MOCK_APPS.length - 1 : 0
+  );
 
   const settings = {
     speed: 800,
@@ -114,9 +123,9 @@ export default function AppFeatured() {
         top: theme.spacing(3),
         left: theme.spacing(3),
         bottom: 'auto',
-        right: 'auto'
-      }
-    })
+        right: 'auto',
+      },
+    }),
   };
 
   const handlePrevious = () => {
@@ -131,11 +140,18 @@ export default function AppFeatured() {
     <Card>
       <Slider ref={carouselRef} {...settings}>
         {MOCK_APPS.map((app, index) => (
-          <CarouselItem key={app.id} item={app} isActive={index === currentIndex} />
+          <CarouselItem
+            key={app.id}
+            item={app}
+            isActive={index === currentIndex}
+          />
         ))}
       </Slider>
 
-      <CarouselControlsArrowsBasic1 onNext={handleNext} onPrevious={handlePrevious} />
+      <CarouselControlsArrowsBasic1
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+      />
     </Card>
   );
 }

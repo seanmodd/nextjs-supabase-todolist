@@ -32,8 +32,8 @@ import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 import fakeRequest from 'src/mui/utils/fakeRequest';
 // routes
 //
-import { QuillEditor } from '../../editor';
-import { UploadMultiFile } from '../../../upload';
+import { UploadMultiFile } from 'src/mui/components/upload';
+import { QuillEditor } from 'src/mui/components/editor';
 
 // ----------------------------------------------------------------------
 

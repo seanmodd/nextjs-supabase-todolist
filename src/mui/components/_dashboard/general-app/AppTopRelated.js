@@ -6,24 +6,40 @@ import appleFilled from '@iconify/icons-ant-design/apple-filled';
 import windowsFilled from '@iconify/icons-ant-design/windows-filled';
 // material
 import { useTheme } from '@mui/material/styles';
-import { Box, Card, Rating, CardHeader, Typography, Stack } from '@mui/material';
+import {
+  Box,
+  Card,
+  Rating,
+  CardHeader,
+  Typography,
+  Stack,
+} from '@mui/material';
 // utils
 import { fCurrency, fShortenNumber } from 'src/mui/utils/formatNumber';
 import mockData from 'src/mui/utils/mock-data';
 //
-import Label from '../../../Label';
-import Scrollbar from '../../../Scrollbar';
+import Scrollbar from 'src/mui/components/Scrollbar';
+import Label from 'src/mui/components/Label';
 
 // ----------------------------------------------------------------------
 
-const MOCK_APPLICATIONS = ['Chrome', 'Drive', 'Dropbox', 'Evernote', 'Github'].map((appName, index) => ({
+const MOCK_APPLICATIONS = [
+  'Chrome',
+  'Drive',
+  'Dropbox',
+  'Evernote',
+  'Github',
+].map((appName, index) => ({
   id: mockData.id(index),
   name: appName,
   system: (index === 2 && 'Windows') || (index === 4 && 'Windows') || 'Mac',
-  price: index === 0 || index === 2 || index === 4 ? 0 : mockData.number.price(index),
+  price:
+    index === 0 || index === 2 || index === 4
+      ? 0
+      : mockData.number.price(index),
   rating: mockData.number.rating(index),
   review: random(99989, true),
-  shortcut: `/static/icons/ic_${noCase(appName)}.svg`
+  shortcut: `/static/icons/ic_${noCase(appName)}.svg`,
 }));
 
 // ----------------------------------------------------------------------
@@ -35,8 +51,8 @@ ApplicationItem.propTypes = {
     rating: PropTypes.number,
     review: PropTypes.number,
     shortcut: PropTypes.string,
-    system: PropTypes.string
-  })
+    system: PropTypes.string,
+  }),
 };
 
 function ApplicationItem({ app }) {
@@ -54,7 +70,7 @@ function ApplicationItem({ app }) {
           borderRadius: 1.5,
           alignItems: 'center',
           justifyContent: 'center',
-          bgcolor: 'background.neutral'
+          bgcolor: 'background.neutral',
         }}
       >
         <img src={shortcut} alt={name} width={24} height={24} />
@@ -62,8 +78,16 @@ function ApplicationItem({ app }) {
 
       <Box sx={{ flexGrow: 1, minWidth: 160 }}>
         <Typography variant="subtitle2">{name}</Typography>
-        <Stack direction="row" alignItems="center" sx={{ mt: 0.5, color: 'text.secondary' }}>
-          <Icon width={16} height={16} icon={system === 'Mac' ? appleFilled : windowsFilled} />
+        <Stack
+          direction="row"
+          alignItems="center"
+          sx={{ mt: 0.5, color: 'text.secondary' }}
+        >
+          <Icon
+            width={16}
+            height={16}
+            icon={system === 'Mac' ? appleFilled : windowsFilled}
+          />
           <Typography variant="caption" sx={{ ml: 0.5, mr: 1 }}>
             {system}
           </Typography>
@@ -77,7 +101,13 @@ function ApplicationItem({ app }) {
       </Box>
 
       <Stack alignItems="flex-end" sx={{ pr: 3 }}>
-        <Rating readOnly size="small" precision={0.5} name="reviews" value={rating} />
+        <Rating
+          readOnly
+          size="small"
+          precision={0.5}
+          name="reviews"
+          value={rating}
+        />
         <Typography variant="caption" sx={{ mt: 0.5, color: 'text.secondary' }}>
           {fShortenNumber(review)}&nbsp;reviews
         </Typography>

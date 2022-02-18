@@ -6,16 +6,23 @@ import match from 'autosuggest-highlight/match';
 import checkmarkFill from '@iconify/icons-eva/checkmark-fill';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Avatar, TextField, Typography, Autocomplete, Chip } from '@mui/material';
+import {
+  Box,
+  Avatar,
+  TextField,
+  Typography,
+  Autocomplete,
+  Chip,
+} from '@mui/material';
 //
-import SearchNotFound from '../../../SearchNotFound';
+import SearchNotFound from 'src/mui/components/SearchNotFound';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  padding: theme.spacing(2, 3)
+  padding: theme.spacing(2, 3),
 }));
 
 const AutocompleteStyle = styled('div')(({ theme }) => ({
@@ -23,19 +30,19 @@ const AutocompleteStyle = styled('div')(({ theme }) => ({
     minWidth: 280,
     marginLeft: theme.spacing(2),
     '&.Mui-focused .MuiAutocomplete-inputRoot': {
-      boxShadow: theme.customShadows.z8
-    }
+      boxShadow: theme.customShadows.z8,
+    },
   },
   '& .MuiAutocomplete-inputRoot': {
     transition: theme.transitions.create('box-shadow', {
       easing: theme.transitions.easing.easeInOut,
-      duration: theme.transitions.duration.shorter
+      duration: theme.transitions.duration.shorter,
     }),
     '& fieldset': {
       borderWidth: `1px !important`,
-      borderColor: `${theme.palette.grey[500_32]} !important`
-    }
-  }
+      borderColor: `${theme.palette.grey[500_32]} !important`,
+    },
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -43,10 +50,15 @@ const AutocompleteStyle = styled('div')(({ theme }) => ({
 ChatHeaderCompose.propTypes = {
   contacts: PropTypes.array,
   recipients: PropTypes.array,
-  onAddRecipients: PropTypes.func
+  onAddRecipients: PropTypes.func,
 };
 
-export default function ChatHeaderCompose({ contacts, recipients, onAddRecipients, ...other }) {
+export default function ChatHeaderCompose({
+  contacts,
+  recipients,
+  onAddRecipients,
+  ...other
+}) {
   const [query, setQuery] = useState('');
 
   const handleChangeQuery = (event) => {
@@ -88,7 +100,7 @@ export default function ChatHeaderCompose({ contacts, recipients, onAddRecipient
                     height: 32,
                     overflow: 'hidden',
                     borderRadius: '50%',
-                    position: 'relative'
+                    position: 'relative',
                   }}
                 >
                   <Avatar alt={name} src={avatar} />
@@ -106,12 +118,12 @@ export default function ChatHeaderCompose({ contacts, recipients, onAddRecipient
                       transition: (theme) =>
                         theme.transitions.create('opacity', {
                           easing: theme.transitions.easing.easeInOut,
-                          duration: theme.transitions.duration.shorter
+                          duration: theme.transitions.duration.shorter,
                         }),
                       ...(selected && {
                         opacity: 1,
-                        color: 'primary.main'
-                      })
+                        color: 'primary.main',
+                      }),
                     }}
                   >
                     <Icon icon={checkmarkFill} width={20} height={20} />
@@ -119,7 +131,11 @@ export default function ChatHeaderCompose({ contacts, recipients, onAddRecipient
                 </Box>
                 <Box sx={{ ml: 2 }} />
                 {parts.map((part, index) => (
-                  <Typography key={index} variant="subtitle2" color={part.highlight ? 'primary' : 'textPrimary'}>
+                  <Typography
+                    key={index}
+                    variant="subtitle2"
+                    color={part.highlight ? 'primary' : 'textPrimary'}
+                  >
                     {part.text}
                   </Typography>
                 ))}
@@ -141,7 +157,12 @@ export default function ChatHeaderCompose({ contacts, recipients, onAddRecipient
               );
             })
           }
-          renderInput={(params) => <TextField {...params} placeholder={recipients.length === 0 ? 'Recipients' : ''} />}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              placeholder={recipients.length === 0 ? 'Recipients' : ''}
+            />
+          )}
         />
       </AutocompleteStyle>
     </RootStyle>

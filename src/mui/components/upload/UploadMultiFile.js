@@ -20,7 +20,7 @@ import {
   ListItemSecondaryAction,
 } from '@mui/material';
 // utils
-import { fData } from 'src/otherComponents/utils/formatNumber';
+import { fData } from 'src/mui/utils/formatNumber';
 //
 import { UploadIllustration } from 'src/otherComponents/assets';
 import { MIconButton } from '../@material-extend';

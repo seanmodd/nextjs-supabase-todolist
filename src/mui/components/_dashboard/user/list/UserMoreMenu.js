@@ -15,7 +15,7 @@ import {
   ListItemText,
 } from '@mui/material';
 // routes
-import { PATH_DASHBOARD } from '../src/mui/routes/paths';
+import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 
 // ----------------------------------------------------------------------
 

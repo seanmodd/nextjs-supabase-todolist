@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Box, Container, Typography } from '@mui/material';
 //
-import { varWrapEnter, varFadeInRight, TextAnimate } from '../../animate';
+import {
+  varWrapEnter,
+  varFadeInRight,
+  TextAnimate,
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -14,8 +18,8 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
   padding: theme.spacing(10, 0),
   [theme.breakpoints.up('md')]: {
     height: 560,
-    padding: 0
-  }
+    padding: 0,
+  },
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -23,8 +27,8 @@ const ContentStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     textAlign: 'left',
     position: 'absolute',
-    bottom: theme.spacing(10)
-  }
+    bottom: theme.spacing(10),
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -34,7 +38,11 @@ export default function AboutHero() {
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container maxWidth="lg" sx={{ position: 'relative', height: '100%' }}>
         <ContentStyle>
-          <TextAnimate text="Who" sx={{ color: 'primary.main' }} variants={varFadeInRight} />
+          <TextAnimate
+            text="Who"
+            sx={{ color: 'primary.main' }}
+            variants={varFadeInRight}
+          />
           <br />
           <Box sx={{ display: 'inline-flex', color: 'common.white' }}>
             <TextAnimate text="we" sx={{ mr: 2 }} />
@@ -47,7 +55,7 @@ export default function AboutHero() {
               sx={{
                 mt: 5,
                 color: 'common.white',
-                fontWeight: 'fontWeightMedium'
+                fontWeight: 'fontWeightMedium',
               }}
             >
               Let's work together and

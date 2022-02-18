@@ -11,8 +11,8 @@ import { Box, Link, Avatar, Typography, AvatarGroup } from '@mui/material';
 // utils
 import { fToNow } from 'src/mui/utils/formatTime';
 //
-import { MIconButton } from '../../@material-extend';
-import BadgeStatus from '../../../BadgeStatus';
+import { MIconButton } from 'src/mui/components/@material-extend';
+import BadgeStatus from 'src/mui/components/BadgeStatus';
 
 // ----------------------------------------------------------------------
 
@@ -21,13 +21,13 @@ const RootStyle = styled('div')(({ theme }) => ({
   minHeight: 92,
   display: 'flex',
   alignItems: 'center',
-  padding: theme.spacing(0, 3)
+  padding: theme.spacing(0, 3),
 }));
 
 // ----------------------------------------------------------------------
 
 OneAvatar.propTypes = {
-  participants: PropTypes.array
+  participants: PropTypes.array,
 };
 
 function OneAvatar({ participants }) {
@@ -41,12 +41,17 @@ function OneAvatar({ participants }) {
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       <Box sx={{ position: 'relative' }}>
         <Avatar src={participant.avatar} alt={participant.name} />
-        <BadgeStatus status={participant.status} sx={{ position: 'absolute', right: 2, bottom: 2 }} />
+        <BadgeStatus
+          status={participant.status}
+          sx={{ position: 'absolute', right: 2, bottom: 2 }}
+        />
       </Box>
       <Box sx={{ ml: 2 }}>
         <Typography variant="subtitle2">{participant.name}</Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {participant.status !== 'offline' ? capitalCase(participant.status) : fToNow(participant.lastActivity)}
+          {participant.status !== 'offline'
+            ? capitalCase(participant.status)
+            : fToNow(participant.lastActivity)}
         </Typography>
       </Box>
     </Box>
@@ -54,7 +59,7 @@ function OneAvatar({ participants }) {
 }
 
 GroupAvatar.propTypes = {
-  participants: PropTypes.array
+  participants: PropTypes.array,
 };
 
 function GroupAvatar({ participants }) {
@@ -64,14 +69,24 @@ function GroupAvatar({ participants }) {
         max={3}
         sx={{
           mb: 0.5,
-          '& .MuiAvatar-root': { width: 32, height: 32 }
+          '& .MuiAvatar-root': { width: 32, height: 32 },
         }}
       >
         {participants.map((participant) => (
-          <Avatar key={participant.id} alt={participant.name} src={participant.avatar} />
+          <Avatar
+            key={participant.id}
+            alt={participant.name}
+            src={participant.avatar}
+          />
         ))}
       </AvatarGroup>
-      <Link variant="body2" underline="none" component="button" color="text.secondary" onClick={() => {}}>
+      <Link
+        variant="body2"
+        underline="none"
+        component="button"
+        color="text.secondary"
+        onClick={() => {}}
+      >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {participants.length} persons
           <Icon icon={arrowIosForwardFill} />
@@ -82,7 +97,7 @@ function GroupAvatar({ participants }) {
 }
 
 ChatHeaderDetail.propTypes = {
-  participants: PropTypes.array
+  participants: PropTypes.array,
 };
 
 export default function ChatHeaderDetail({ participants, ...other }) {
@@ -90,7 +105,11 @@ export default function ChatHeaderDetail({ participants, ...other }) {
 
   return (
     <RootStyle {...other}>
-      {isGroup ? <GroupAvatar participants={participants} /> : <OneAvatar participants={participants} />}
+      {isGroup ? (
+        <GroupAvatar participants={participants} />
+      ) : (
+        <OneAvatar participants={participants} />
+      )}
 
       <Box sx={{ flexGrow: 1 }} />
       <MIconButton>

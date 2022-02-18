@@ -10,7 +10,7 @@ import {
 // utils
 import mockData from 'src/mui/utils/mock-data';
 //
-import { varFadeIn, MotionInView } from '../../animate';
+import { varFadeIn, MotionInView } from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 

@@ -9,9 +9,9 @@ import { styled } from '@mui/material/styles';
 // routes
 import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 // utils
-import { fCurrency } from 'src/otherComponents/utils/formatNumber';
+import { fCurrency } from 'src/mui/utils/formatNumber';
 //
-import Label from '../../../../Label';
+import Label from 'src/mui/components/Label';
 // import ColorPreview from '../../../ColorPreview';
 
 // ----------------------------------------------------------------------

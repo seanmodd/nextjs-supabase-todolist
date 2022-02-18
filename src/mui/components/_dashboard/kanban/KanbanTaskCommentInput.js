@@ -4,8 +4,8 @@ import roundAddPhotoAlternate from '@iconify/icons-ic/round-add-photo-alternate'
 // material
 import { Stack, Paper, Button, Tooltip, OutlinedInput } from '@mui/material';
 //
-import { MIconButton } from '../../@material-extend';
-import MyAvatar from '../../../MyAvatar';
+import { MIconButton } from 'src/mui/components/@material-extend';
+import MyAvatar from 'src/mui/components/MyAvatar';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +23,11 @@ export default function KanbanTaskCommentInput() {
           sx={{ '& fieldset': { display: 'none' } }}
         />
 
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <Stack direction="row" spacing={0.5}>
             <Tooltip title="Add photo">
               <MIconButton size="small">

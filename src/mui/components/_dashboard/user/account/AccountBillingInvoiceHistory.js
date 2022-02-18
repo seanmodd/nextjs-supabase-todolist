@@ -5,8 +5,8 @@ import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
 // material
 import { Link, Stack, Button, Typography } from '@mui/material';
 // utils
-import { fDate } from 'src/otherComponents/utils/formatTime';
-import { fCurrency } from 'src/otherComponents/utils/formatNumber';
+import { fDate } from 'src/mui/utils/formatTime';
+import { fCurrency } from 'src/mui/utils/formatNumber';
 
 // ----------------------------------------------------------------------
 

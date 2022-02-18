@@ -2,7 +2,7 @@
 // hooks
 //* useAuth comes from Firebase
 import { useEffect } from 'react';
-import createAvatar from 'src/otherComponents/utils/createAvatar';
+import createAvatar from 'src/mui/utils/createAvatar';
 import useAuth from 'src/mui/hooks/useAuth';
 //
 import { MAvatar } from './@material-extend';

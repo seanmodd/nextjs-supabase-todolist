@@ -1,7 +1,11 @@
 // material
 import { Box, Container, Typography, Grid } from '@mui/material';
 //
-import { varFadeInUp, varFadeIn, MotionInView } from '../../animate';
+import {
+  varFadeInUp,
+  varFadeIn,
+  MotionInView,
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +17,7 @@ export default function AboutVision() {
           mb: 10,
           position: 'relative',
           borderRadius: 2,
-          overflow: 'hidden'
+          overflow: 'hidden',
         }}
       >
         <img src="/static/about/vision.jpg" alt="about-vision" />
@@ -26,17 +30,24 @@ export default function AboutVision() {
             flexWrap: 'wrap',
             alignItems: 'center',
             position: 'absolute',
-            justifyContent: 'center'
+            justifyContent: 'center',
           }}
         >
-          {['logo_amazon', 'logo_hbo', 'logo_ibm', 'logo_lya', 'logo_spotify', 'logo_netflix'].map((logo) => (
+          {[
+            'logo_amazon',
+            'logo_hbo',
+            'logo_ibm',
+            'logo_lya',
+            'logo_spotify',
+            'logo_netflix',
+          ].map((logo) => (
             <MotionInView key={logo} variants={varFadeIn}>
               <Box
                 component="img"
                 src={`/static/about/${logo}.svg`}
                 sx={{
                   m: { xs: 1.5, md: 3 },
-                  height: { xs: 24, md: 32 }
+                  height: { xs: 24, md: 32 },
                 }}
               />
             </MotionInView>
@@ -48,7 +59,8 @@ export default function AboutVision() {
         <Grid item xs={12} sm={8}>
           <MotionInView variants={varFadeInUp}>
             <Typography variant="h3" sx={{ textAlign: 'center' }}>
-              Our vision offering the best product nulla vehicula tortor scelerisque ultrices malesuada.
+              Our vision offering the best product nulla vehicula tortor
+              scelerisque ultrices malesuada.
             </Typography>
           </MotionInView>
         </Grid>

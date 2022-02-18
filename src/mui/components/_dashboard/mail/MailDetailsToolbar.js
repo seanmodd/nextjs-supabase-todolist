@@ -15,7 +15,7 @@ import { PATH_DASHBOARD } from 'src/mui/routes/paths';
 import createAvatar from 'src/mui/utils/createAvatar';
 import { fDateTimeSuffix } from 'src/mui/utils/formatTime';
 //
-import { MAvatar, MHidden } from '../../@material-extend';
+import { MAvatar, MHidden } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 

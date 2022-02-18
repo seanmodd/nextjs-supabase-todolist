@@ -7,7 +7,7 @@ import emailFill from '@iconify/icons-eva/email-fill';
 import { styled } from '@mui/material/styles';
 import { Avatar, Typography, DialogContent } from '@mui/material';
 //
-import { DialogAnimate } from '../../animate';
+import { DialogAnimate } from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -15,14 +15,14 @@ const RowStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  marginTop: theme.spacing(1.5)
+  marginTop: theme.spacing(1.5),
 }));
 
 const IconStyle = styled(Icon)(({ theme }) => ({
   width: 16,
   height: 16,
   marginRight: theme.spacing(1),
-  color: theme.palette.text.secondary
+  color: theme.palette.text.secondary,
 }));
 
 // ----------------------------------------------------------------------
@@ -30,14 +30,25 @@ const IconStyle = styled(Icon)(({ theme }) => ({
 ChatRoomPopup.propTypes = {
   participant: PropTypes.object,
   isOpen: PropTypes.bool,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
 };
 
-export default function ChatRoomPopup({ participant, isOpen, onClose, ...other }) {
+export default function ChatRoomPopup({
+  participant,
+  isOpen,
+  onClose,
+  ...other
+}) {
   const { name, avatar, position, address, phone, email } = participant;
 
   return (
-    <DialogAnimate fullWidth maxWidth="xs" open={isOpen} onClose={onClose} {...other}>
+    <DialogAnimate
+      fullWidth
+      maxWidth="xs"
+      open={isOpen}
+      onClose={onClose}
+      {...other}
+    >
       <DialogContent sx={{ pb: 5, textAlign: 'center' }}>
         <Avatar
           alt={name}
@@ -47,7 +58,7 @@ export default function ChatRoomPopup({ participant, isOpen, onClose, ...other }
             mb: 2,
             mx: 'auto',
             width: 96,
-            height: 96
+            height: 96,
           }}
         />
         <Typography variant="h6">{name}</Typography>

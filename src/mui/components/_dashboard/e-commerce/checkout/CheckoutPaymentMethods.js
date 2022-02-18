@@ -17,10 +17,10 @@ import {
   CardHeader,
   CardContent,
   FormHelperText,
-  FormControlLabel
+  FormControlLabel,
 } from '@mui/material';
 //
-import { MHidden } from '../../../@material-extend';
+import { MHidden } from 'src/mui/components/@material-extend';
 
 // ----------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ const OptionStyle = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
   borderRadius: theme.shape.borderRadius,
   transition: theme.transitions.create('all'),
-  border: `solid 1px ${theme.palette.grey[500_32]}`
+  border: `solid 1px ${theme.palette.grey[500_32]}`,
 }));
 
 // ----------------------------------------------------------------------
@@ -39,10 +39,14 @@ const OptionStyle = styled('div')(({ theme }) => ({
 CheckoutPaymentMethods.propTypes = {
   formik: PropTypes.object,
   paymentOptions: PropTypes.array,
-  cardOptions: PropTypes.array
+  cardOptions: PropTypes.array,
 };
 
-export default function CheckoutPaymentMethods({ paymentOptions, cardOptions, formik }) {
+export default function CheckoutPaymentMethods({
+  paymentOptions,
+  cardOptions,
+  formik,
+}) {
   const { errors, touched, values, getFieldProps } = formik;
 
   return (
@@ -60,18 +64,25 @@ export default function CheckoutPaymentMethods({ paymentOptions, cardOptions, fo
                   <OptionStyle
                     sx={{
                       ...(values.payment === value && {
-                        boxShadow: (theme) => theme.customShadows.z8
+                        boxShadow: (theme) => theme.customShadows.z8,
                       }),
-                      ...(hasChildren && { flexWrap: 'wrap' })
+                      ...(hasChildren && { flexWrap: 'wrap' }),
                     }}
                   >
                     <FormControlLabel
                       value={value}
-                      control={<Radio checkedIcon={<Icon icon={checkmarkCircle2Fill} />} />}
+                      control={
+                        <Radio
+                          checkedIcon={<Icon icon={checkmarkCircle2Fill} />}
+                        />
+                      }
                       label={
                         <Box sx={{ ml: 1 }}>
                           <Typography variant="subtitle2">{title}</Typography>
-                          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                          <Typography
+                            variant="body2"
+                            sx={{ color: 'text.secondary' }}
+                          >
                             {description}
                           </Typography>
                         </Box>
@@ -79,7 +90,13 @@ export default function CheckoutPaymentMethods({ paymentOptions, cardOptions, fo
                       sx={{ flexGrow: 1, py: 3 }}
                     />
                     <MHidden width="smDown">
-                      <Box sx={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+                      <Box
+                        sx={{
+                          flexShrink: 0,
+                          display: 'flex',
+                          alignItems: 'center',
+                        }}
+                      >
                         {icons.map((icon, index) => (
                           <Box
                             key={icon}
@@ -87,7 +104,7 @@ export default function CheckoutPaymentMethods({ paymentOptions, cardOptions, fo
                             alt="logo card"
                             src={icon}
                             sx={{
-                              ...(index === 0 && { mr: 1 })
+                              ...(index === 0 && { mr: 1 }),
                             }}
                           />
                         ))}
@@ -95,7 +112,10 @@ export default function CheckoutPaymentMethods({ paymentOptions, cardOptions, fo
                     </MHidden>
 
                     {hasChildren && (
-                      <Collapse in={values.payment === 'credit_card'} sx={{ width: '100%' }}>
+                      <Collapse
+                        in={values.payment === 'credit_card'}
+                        sx={{ width: '100%' }}
+                      >
                         <TextField
                           select
                           fullWidth
@@ -114,7 +134,9 @@ export default function CheckoutPaymentMethods({ paymentOptions, cardOptions, fo
                           id="add-card"
                           type="button"
                           size="small"
-                          startIcon={<Icon icon={plusFill} width={20} height={20} />}
+                          startIcon={
+                            <Icon icon={plusFill} width={20} height={20} />
+                          }
                           sx={{ my: 3 }}
                         >
                           Add new card

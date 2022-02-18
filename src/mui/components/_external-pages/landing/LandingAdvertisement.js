@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Button, Box, Container, Typography } from '@mui/material';
 //
-import { varFadeInDown, varFadeInUp, MotionInView } from '../../animate';
+import {
+  varFadeInDown,
+  varFadeInUp,
+  MotionInView,
+} from 'src/mui/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -20,8 +24,8 @@ const ContentStyle = styled('div')(({ theme }) => ({
     display: 'flex',
     maxWidth: '100%',
     paddingBottom: 0,
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 }));
 
 // ----------------------------------------------------------------------
@@ -33,21 +37,32 @@ export default function LandingAdvertisement() {
         <MotionInView
           variants={varFadeInUp}
           sx={{
-            mb: { xs: 3, md: 0 }
+            mb: { xs: 3, md: 0 },
           }}
         >
-          <motion.div animate={{ y: [-20, 0, -20] }} transition={{ duration: 4, repeat: Infinity }}>
-            <Box component="img" alt="rocket" src="/static/home/rocket.png" sx={{ maxWidth: 460, width: 1 }} />
+          <motion.div
+            animate={{ y: [-20, 0, -20] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          >
+            <Box
+              component="img"
+              alt="rocket"
+              src="/static/home/rocket.png"
+              sx={{ maxWidth: 460, width: 1 }}
+            />
           </motion.div>
         </MotionInView>
 
         <Box
           sx={{
             pl: { md: 10 },
-            textAlign: { xs: 'center', md: 'left' }
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <MotionInView variants={varFadeInDown} sx={{ color: 'common.white', mb: 5 }}>
+          <MotionInView
+            variants={varFadeInDown}
+            sx={{ color: 'common.white', mb: 5 }}
+          >
             <Typography variant="h2">
               Get started with
               <br /> minimal kit today
@@ -62,9 +77,10 @@ export default function LandingAdvertisement() {
               sx={{
                 whiteSpace: 'nowrap',
                 boxShadow: (theme) => theme.customShadows.z8,
-                color: (theme) => theme.palette.getContrastText(theme.palette.common.white),
+                color: (theme) =>
+                  theme.palette.getContrastText(theme.palette.common.white),
                 bgcolor: 'common.white',
-                '&:hover': { bgcolor: 'grey.300' }
+                '&:hover': { bgcolor: 'grey.300' },
               }}
             >
               Purchase Now

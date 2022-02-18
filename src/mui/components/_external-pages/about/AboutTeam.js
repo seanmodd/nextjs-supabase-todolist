@@ -25,7 +25,7 @@ import {
   varFadeInUp,
   MotionInView,
   varFadeInDown,
-} from '../../animate';
+} from 'src/mui/components/animate';
 import { CarouselControlsArrowsBasic2 } from '../../carousel';
 
 // ----------------------------------------------------------------------

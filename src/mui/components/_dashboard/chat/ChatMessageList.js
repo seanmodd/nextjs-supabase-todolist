@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import { findIndex } from 'lodash';
 import { useEffect, useState, useRef } from 'react';
 //
-import Scrollbar from '../../../Scrollbar';
-import LightboxModal from '../../../LightboxModal';
+import Scrollbar from 'src/mui/components/Scrollbar';
+import LightboxModal from 'src/mui/components/LightboxModal';
 import ChatMessageItem from './ChatMessageItem';
 
 // ----------------------------------------------------------------------
 
 ChatMessageList.propTypes = {
-  conversation: PropTypes.object.isRequired
+  conversation: PropTypes.object.isRequired,
 };
 
 export default function ChatMessageList({ conversation }) {
@@ -38,7 +38,10 @@ export default function ChatMessageList({ conversation }) {
 
   return (
     <>
-      <Scrollbar scrollableNodeProps={{ ref: scrollRef }} sx={{ p: 3, height: 1 }}>
+      <Scrollbar
+        scrollableNodeProps={{ ref: scrollRef }}
+        sx={{ p: 3, height: 1 }}
+      >
         {conversation.messages.map((message) => (
           <ChatMessageItem
             key={message.id}

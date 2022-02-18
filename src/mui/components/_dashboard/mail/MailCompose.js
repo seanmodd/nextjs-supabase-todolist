@@ -10,7 +10,7 @@ import roundAddPhotoAlternate from '@iconify/icons-ic/round-add-photo-alternate'
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, Input, Portal, Button, Divider, Backdrop, IconButton, Typography, useMediaQuery } from '@mui/material';
 //
-import { QuillEditor } from '../../editor';
+import { QuillEditor } from 'src/mui/components/editor';
 
 // ----------------------------------------------------------------------
 
