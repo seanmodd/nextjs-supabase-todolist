@@ -1,4 +1,5 @@
 import VehicleFeatures from './VehicleFeatures';
+import VehicleGalleryAndDetails from './VehicleGalleryAndDetails';
 import VehicleGrid from './VehicleGrid';
 
 function Vehicle() {
@@ -13,6 +14,7 @@ function Vehicle() {
           Vehicle Details
         </h2>
         {/* <VehicleGrid /> */}
+        <VehicleGalleryAndDetails />
         <VehicleFeatures />
       </section>
     </>

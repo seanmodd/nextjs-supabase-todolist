@@ -16,7 +16,7 @@ function Header() {
               {/* Logo */}
               <Logo />
               {/* Search */}
-              <Search />
+              {/* <Search /> */}
               {/* Heart Icon for Favoriting Vehicles */}
               <Favorites />
               {/* Sign in and Create Account */}
@@ -93,19 +93,19 @@ function Favorites() {
     </div>
   );
 }
-function Search() {
-  return (
-    <div className="flex mr-4 lg:ml-6">
-      <a
-        href="#"
-        className="p-2 px-4 text-gray-400 lg:px-6 hover:text-gray-500"
-      >
-        <span className="sr-only">Search</span>
-        <SearchIcon className="w-6 h-6" aria-hidden="true" />
-      </a>
-    </div>
-  );
-}
+// function Search() {
+//   return (
+//     <div className="flex mr-4 lg:ml-6">
+//       <a
+//         href="#"
+//         className="p-2 px-4 text-gray-400 lg:px-6 hover:text-gray-500"
+//       >
+//         <span className="sr-only">Search</span>
+//         <SearchIcon className="w-6 h-6" aria-hidden="true" />
+//       </a>
+//     </div>
+//   );
+// }
 function Logo() {
   return (
     <div className="flex ml-4 mr-4 ">
