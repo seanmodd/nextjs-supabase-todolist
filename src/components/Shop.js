@@ -37,16 +37,16 @@ import {
   PlusSmIcon,
   ViewGridIcon,
 } from '@heroicons/react/solid';
-import ShopLayout from 'src/components/layout/ShopLayout';
+import AppLayout from 'src/components/layout/AppLayout';
 import AllVehicles from 'src/components/logic/AllVehicles';
 
 export default function ShopComponent() {
   return (
     <div className="bg-white">
       <div>
-        <ShopLayout>
+        <AppLayout>
           <AllVehicles />
-        </ShopLayout>
+        </AppLayout>
       </div>
     </div>
   );

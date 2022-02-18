@@ -1,48 +1,11 @@
-import {
-  ChevronDownIcon,
-  FilterIcon,
-  MinusSmIcon,
-  PlusSmIcon,
-  ViewGridIcon,
-} from '@heroicons/react/solid';
+import { ChevronDownIcon } from '@heroicons/react/solid';
 import { Fragment, useState } from 'react';
-import {
-  Dialog,
-  Disclosure,
-  Menu,
-  Popover,
-  Tab,
-  Transition,
-} from '@headlessui/react';
-import {
-  MenuIcon,
-  SearchIcon,
-  ShoppingBagIcon,
-  XIcon,
-} from '@heroicons/react/outline';
-
-const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-];
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import { Menu, Transition } from '@headlessui/react';
 
 function VehicleSort() {
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button className="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
-          Sort
-          <ChevronDownIcon
-            className="flex-shrink-0 w-5 h-5 ml-1 -mr-1 text-gray-400 group-hover:text-gray-500"
-            aria-hidden="true"
-          />
-        </Menu.Button>
-      </div>
+      <SortButton />
 
       <Transition
         as={Fragment}
@@ -81,3 +44,27 @@ function VehicleSort() {
 }
 
 export default VehicleSort;
+
+const sortOptions = [
+  { name: 'Most Popular', href: '#', current: true },
+  { name: 'Newest', href: '#', current: false },
+  { name: 'Price: Low to High', href: '#', current: false },
+  { name: 'Price: High to Low', href: '#', current: false },
+];
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
+function SortButton() {
+  return (
+    <div>
+      <Menu.Button className="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
+        Sort
+        <ChevronDownIcon
+          className="flex-shrink-0 w-5 h-5 ml-1 -mr-1 text-gray-400 group-hover:text-gray-500"
+          aria-hidden="true"
+        />
+      </Menu.Button>
+    </div>
+  );
+}

@@ -1,10 +1,10 @@
 import Footer from './Footer';
-import Header from './Header';
+import TopNav from './TopNav';
 
 export default function ({ children }) {
   return (
     <>
-      <Header />
+      <TopNav />
       {children}
       <Footer />
     </>
