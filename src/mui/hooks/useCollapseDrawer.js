@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CollapseDrawerContext } from 'src/mui/contexts/CollapseDrawerContext';
+import { CollapseDrawerContext } from '../contexts/CollapseDrawerContext';
 
 // ----------------------------------------------------------------------
 

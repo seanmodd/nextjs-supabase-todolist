@@ -23,6 +23,8 @@ import Settings from 'src/mui/components/settings';
 import RtlLayout from 'src/mui/components/RtlLayout';
 import ProgressBar from 'src/mui/components/ProgressBar';
 import { UserWrapper, FeedbackWrapper, CartWrapper } from 'src/mui/contexts';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import { supabase } from '../lib/initSupabase';
 
 const clientSideEmotionCache = createEmotionCache();
@@ -37,10 +39,9 @@ const MyApp = (props) => {
         // loading={<LoadingScreen />}
         persistor={persistor}
       >
-        {/* <ReduxProvider store={store}> */}
-        <ApolloWrapper>
-          <ApolloProvider client={client}>
-            <Auth.UserContextProvider supabaseClient={supabase}>
+        <ApolloProvider client={client}>
+          <Auth.UserContextProvider supabaseClient={supabase}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
               <CacheProvider value={emotionCache}>
                 <FeedbackWrapper>
                   <UserWrapper>
@@ -67,9 +68,9 @@ const MyApp = (props) => {
                   </UserWrapper>
                 </FeedbackWrapper>
               </CacheProvider>
-            </Auth.UserContextProvider>
-          </ApolloProvider>
-        </ApolloWrapper>
+            </LocalizationProvider>
+          </Auth.UserContextProvider>
+        </ApolloProvider>
         {/* </ReduxProvider> */}
       </PersistGate>
     </HelmetProvider>

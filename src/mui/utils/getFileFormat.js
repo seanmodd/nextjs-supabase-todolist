@@ -1,8 +1,6 @@
-// material
-import { Box } from '@mui/material';
-//
-import { Icon } from '@iconify/react';
-import fileFill from '@iconify/icons-eva/file-fill';
+// components
+import Image from '../components/Image';
+import Iconify from '../components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -15,8 +13,8 @@ const FORMAT_PDF = ['pdf'];
 const FORMAT_PHOTOSHOP = ['psd'];
 const FORMAT_ILLUSTRATOR = ['ai', 'esp'];
 
-export function getFileType(fileUrl) {
-  return fileUrl.split('.').pop();
+export function getFileType(fileUrl = '') {
+  return (fileUrl && fileUrl.split('.').pop()) || '';
 }
 
 export function getFileName(fileUrl) {
@@ -63,38 +61,42 @@ export function getFileFormat(fileUrl) {
 }
 
 const getIcon = (name) => (
-  <Box component="img" src={`/static/icons/file/${name}.svg`} alt={name} sx={{ width: 28, height: 28 }} />
+  <Image
+    src={`https://minimal-assets-api.vercel.app/assets/icons/file/${name}.svg`}
+    alt={name}
+    sx={{ width: 28, height: 28 }}
+  />
 );
 
 export function getFileThumb(fileUrl) {
   let thumb;
   switch (getFileFormat(fileUrl)) {
-    case 'image':
-      thumb = <Box component="img" src={fileUrl} alt={fileUrl} sx={{ width: 1, height: 1 }} />;
-      break;
     case 'video':
-      thumb = getIcon('file_type_video');
+      thumb = getIcon('format_video');
       break;
     case 'word':
-      thumb = getIcon('file_type_word');
+      thumb = getIcon('format_word');
       break;
     case 'excel':
-      thumb = getIcon('file_type_excel');
+      thumb = getIcon('format_excel');
       break;
     case 'powerpoint':
-      thumb = getIcon('file_type_powerpoint');
+      thumb = getIcon('format_powerpoint');
       break;
     case 'pdf':
-      thumb = getIcon('file_type_pdf');
+      thumb = getIcon('format_pdf');
       break;
     case 'photoshop':
-      thumb = getIcon('file_type_photoshop');
+      thumb = getIcon('format_photoshop');
       break;
     case 'illustrator':
-      thumb = getIcon('file_type_ai');
+      thumb = getIcon('format_ai');
+      break;
+    case 'image':
+      thumb = <Image src={fileUrl} alt={fileUrl} sx={{ height: 1 }} />;
       break;
     default:
-      thumb = <Box component={Icon} icon={fileFill} sx={{ width: 28, height: 28 }} />;
+      thumb = <Iconify icon={'eva:file-fill'} sx={{ width: 28, height: 28 }} />;
   }
   return thumb;
 }

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SettingsContext } from 'src/mui/contexts/SettingsContext';
+import { SettingsContext } from '../contexts/SettingsContext';
 
 // ----------------------------------------------------------------------
 

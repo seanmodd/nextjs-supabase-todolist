@@ -1,143 +1,49 @@
 import PropTypes from 'prop-types';
-import { createContext } from 'react';
-// hooks
-import useLocalStorage from 'src/mui/hooks/useLocalStorage';
-// theme
-import palette from 'src/styles/theme/palette';
+import Cookies from 'js-cookie';
+import { createContext, useEffect, useState } from 'react';
+// utils
+import getColorPresets, { colorPresets, defaultPreset } from '../utils/getColorPresets';
+// config
+import { defaultSettings, cookiesKey, cookiesExpires } from '../config';
 
 // ----------------------------------------------------------------------
 
-const PRIMARY_COLOR = [
-  // DEFAULT
-  {
-    name: 'default',
-    ...palette.light.primary,
-  },
-  // PURPLE
-  {
-    name: 'purple',
-    lighter: '#EBD6FD',
-    light: '#B985F4',
-    main: '#7635dc',
-    dark: '#431A9E',
-    darker: '#200A69',
-    contrastText: '#fff',
-  },
-  // CYAN
-  {
-    name: 'cyan',
-    lighter: '#D1FFFC',
-    light: '#76F2FF',
-    main: '#1CCAFF',
-    dark: '#0E77B7',
-    darker: '#053D7A',
-    contrastText: palette.light.grey[800],
-  },
-  // BLUE
-  {
-    name: 'blue',
-    lighter: '#CCDFFF',
-    light: '#6697FF',
-    main: '#0045FF',
-    dark: '#0027B7',
-    darker: '#00137A',
-    contrastText: '#fff',
-  },
-  // ORANGE
-  {
-    name: 'orange',
-    lighter: '#FEF4D4',
-    light: '#FED680',
-    main: '#fda92d',
-    dark: '#B66816',
-    darker: '#793908',
-    contrastText: palette.light.grey[800],
-  },
-  // RED
-  {
-    name: 'red',
-    lighter: '#FFE3D5',
-    light: '#FFC1AC',
-    main: '#FF3030',
-    dark: '#B71833',
-    darker: '#7A0930',
-    contrastText: '#fff',
-  },
-];
-
-SetColor.propTypes = {
-  themeColor: PropTypes.oneOf([
-    'default',
-    'purple',
-    'cyan',
-    'blue',
-    'orange',
-    'red',
-  ]),
-};
-
-function SetColor(themeColor) {
-  let color;
-  const DEFAULT = PRIMARY_COLOR[0];
-  const PURPLE = PRIMARY_COLOR[1];
-  const CYAN = PRIMARY_COLOR[2];
-  const BLUE = PRIMARY_COLOR[3];
-  const ORANGE = PRIMARY_COLOR[4];
-  const RED = PRIMARY_COLOR[5];
-
-  switch (themeColor) {
-    case 'purple':
-      color = PURPLE;
-      break;
-    case 'cyan':
-      color = CYAN;
-      break;
-    case 'blue':
-      color = BLUE;
-      break;
-    case 'orange':
-      color = ORANGE;
-      break;
-    case 'red':
-      color = RED;
-      break;
-    default:
-      color = DEFAULT;
-  }
-  return color;
-}
-
 const initialState = {
-  themeMode: 'light',
-  themeDirection: 'ltr',
-  themeColor: 'default',
-  themeStretch: false,
+  ...defaultSettings,
   onChangeMode: () => {},
+  onToggleMode: () => {},
   onChangeDirection: () => {},
   onChangeColor: () => {},
   onToggleStretch: () => {},
-  setColor: PRIMARY_COLOR[0],
+  onChangeLayout: () => {},
+  onResetSetting: () => {},
+  setColor: defaultPreset,
   colorOption: [],
 };
 
 const SettingsContext = createContext(initialState);
 
+// ----------------------------------------------------------------------
+
 SettingsProvider.propTypes = {
   children: PropTypes.node,
+  defaultSettings: PropTypes.object,
 };
 
-function SettingsProvider({ children }) {
-  const [settings, setSettings] = useLocalStorage('settings', {
-    themeMode: initialState.themeMode,
-    themeDirection: initialState.themeDirection,
-    themeColor: initialState.themeColor,
-    themeStretch: initialState.themeStretch,
-  });
+function SettingsProvider({ children, defaultSettings = {} }) {
+  const [settings, setSettings] = useSettingCookies(defaultSettings);
 
   const onChangeMode = (event) => {
     setSettings({
       ...settings,
       themeMode: event.target.value,
+    });
+  };
+
+  const onToggleMode = () => {
+    setSettings({
+      ...settings,
+      themeMode: settings.themeMode === 'light' ? 'dark' : 'light',
     });
   };
 
@@ -151,7 +57,14 @@ function SettingsProvider({ children }) {
   const onChangeColor = (event) => {
     setSettings({
       ...settings,
-      themeColor: event.target.value,
+      themeColorPresets: event.target.value,
+    });
+  };
+
+  const onChangeLayout = (event) => {
+    setSettings({
+      ...settings,
+      themeLayout: event.target.value,
     });
   };
 
@@ -162,23 +75,38 @@ function SettingsProvider({ children }) {
     });
   };
 
+  const onResetSetting = () => {
+    setSettings({
+      themeMode: initialState.themeMode,
+      themeLayout: initialState.themeLayout,
+      themeStretch: initialState.themeStretch,
+      themeDirection: initialState.themeDirection,
+      themeColorPresets: initialState.themeColorPresets,
+    });
+  };
+
   return (
     <SettingsContext.Provider
       value={{
         ...settings,
         // Mode
         onChangeMode,
+        onToggleMode,
         // Direction
         onChangeDirection,
         // Color
         onChangeColor,
-        setColor: SetColor(settings.themeColor),
-        colorOption: PRIMARY_COLOR.map((color) => ({
+        setColor: getColorPresets(settings.themeColorPresets),
+        colorOption: colorPresets.map((color) => ({
           name: color.name,
           value: color.main,
         })),
         // Stretch
         onToggleStretch,
+        // Navbar Horizontal
+        onChangeLayout,
+        // Reset Setting
+        onResetSetting,
       }}
     >
       {children}
@@ -187,3 +115,34 @@ function SettingsProvider({ children }) {
 }
 
 export { SettingsProvider, SettingsContext };
+
+// ----------------------------------------------------------------------
+
+function useSettingCookies(defaultSettings) {
+  const [settings, setSettings] = useState(defaultSettings);
+
+  const onChangeSetting = () => {
+    Cookies.set(cookiesKey.themeMode, settings.themeMode, { expires: cookiesExpires });
+
+    Cookies.set(cookiesKey.themeDirection, settings.themeDirection, { expires: cookiesExpires });
+
+    Cookies.set(cookiesKey.themeColorPresets, settings.themeColorPresets, {
+      expires: cookiesExpires,
+    });
+
+    Cookies.set(cookiesKey.themeLayout, settings.themeLayout, {
+      expires: cookiesExpires,
+    });
+
+    Cookies.set(cookiesKey.themeStretch, JSON.stringify(settings.themeStretch), {
+      expires: cookiesExpires,
+    });
+  };
+
+  useEffect(() => {
+    onChangeSetting();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [settings]);
+
+  return [settings, setSettings];
+}

@@ -7,7 +7,7 @@ export function fDate(date) {
 }
 
 export function fDateTime(date) {
-  return format(new Date(date), 'dd MMM yyyy HH:mm');
+  return format(new Date(date), 'dd MMM yyyy p');
 }
 
 export function fTimestamp(date) {
@@ -20,6 +20,6 @@ export function fDateTimeSuffix(date) {
 
 export function fToNow(date) {
   return formatDistanceToNow(new Date(date), {
-    addSuffix: true
+    addSuffix: true,
   });
 }
