@@ -203,7 +203,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       )}
     </Scrollbar>
   );
-// RTHIS IS THE ANNOYING BUG
+// THIS IS THE ANNOYING BUG
   return (
     <RootStyle
       sx={{
