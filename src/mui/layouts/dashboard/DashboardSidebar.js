@@ -28,7 +28,6 @@ import NavSection from 'src/mui/components/NavSection';
 import { MHidden } from 'src/mui/components/@material-extend';
 import sidebarConfigAuthenticated from './SidebarConfig_Authenticated';
 import sidebarConfigGuest from './SidebarConfig_Guest';
-
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
@@ -104,7 +103,6 @@ DashboardSidebar.propTypes = {
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useRouter();
   const { user, isAuthenticated } = useAuth();
-  const theAuth = useAuth();
 
   const endlink = !isAuthenticated
     ? '/dashboard/user/register'
@@ -125,85 +123,218 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  const renderContent = (
-    <Scrollbar
-      sx={{
-        height: '100%',
-        '& .simplebar-content': {
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-        },
-      }}
-    >
-      <Stack
-        spacing={3}
+  // const renderContent = (
+  //   <Scrollbar
+  //     sx={{
+  //       height: '100%',
+  //       '& .simplebar-content': {
+  //         height: '100%',
+  //         display: 'flex',
+  //         flexDirection: 'column',
+  //       },
+  //     }}
+  //   >
+  //     <Stack
+  //       spacing={3}
+  //       sx={{
+  //         px: 2.5,
+  //         pt: 3,
+  //         pb: 2,
+  //         ...(isCollapse && {
+  //           alignItems: 'center',
+  //         }),
+  //       }}
+  //     >
+  //       <Stack
+  //         direction="row"
+  //         alignItems="center"
+  //         justifyContent="space-between"
+  //       >
+  //         <NextLink href="/">
+  //           <Box sx={{ display: 'inline-flex' }}>
+  //             <Logo />
+  //           </Box>
+  //         </NextLink>
+
+  //         <MHidden width="lgDown">
+  //           {!isCollapse && (
+  //             <IconCollapse
+  //               onToggleCollapse={onToggleCollapse}
+  //               collapseClick={collapseClick}
+  //             />
+  //           )}
+  //         </MHidden>
+  //       </Stack>
+  //       {isCollapse ? (
+  //         <MyAvatar />
+  //       ) : (
+  //         <NextLink href={endlink}>
+  //           {/* <NextLink href="#"> */}
+  //           <AccountStyle>
+  //             {/* <Avatar
+  //               alt='My Avatar'
+  //               src='/static/mock-images/avatars/avatar_default.jpg'
+  //             /> */}
+  //             <MyAvatar />
+  //             <Box sx={{ ml: 2 }}>
+  //               <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+  //                 {/* {(isAuthenticated && user.displayName) || user.email} */}
+  //                 {!isAuthenticated && 'Guest User'}
+  //               </Typography>
+  //               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+  //                 {!isAuthenticated && 'Not signed in yet'}
+  //               </Typography>
+  //             </Box>
+  //           </AccountStyle>
+  //         </NextLink>
+  //       )}
+  //     </Stack>
+  //     {isAuthenticated && (
+  //       <NavSection
+  //         navConfig={sidebarConfigAuthenticated}
+  //         isShow={!isCollapse}
+  //       />
+  //     )}
+  //     {!isAuthenticated && (
+  //       <NavSection navConfig={sidebarConfigGuest} isShow={!isCollapse} />
+  //     )}
+  //   </Scrollbar>
+  // );
+  // THIS IS THE ANNOYING BUG
+  function MyRenderContent({ MyIconCollapse }) {
+    const { pathname } = useRouter();
+    const { user, isAuthenticated } = useAuth();
+
+    const endlink = !isAuthenticated
+      ? '/dashboard/user/register'
+      : 'dashboard/shop';
+    const { isCollapse, collapseClick, onToggleCollapse } = useCollapseDrawer();
+
+    useEffect(() => {
+      if (isOpenSidebar) {
+        onCloseSidebar();
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pathname]);
+    return (
+      <Scrollbar
         sx={{
-          px: 2.5,
-          pt: 3,
-          pb: 2,
-          ...(isCollapse && {
-            alignItems: 'center',
-          }),
+          height: '100%',
+          '& .simplebar-content': {
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+          },
         }}
       >
         <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
+          spacing={3}
+          sx={{
+            px: 2.5,
+            pt: 3,
+            pb: 2,
+            ...(isCollapse && {
+              alignItems: 'center',
+            }),
+          }}
         >
-          <NextLink href="/">
-            <Box sx={{ display: 'inline-flex' }}>
-              <Logo />
-            </Box>
-          </NextLink>
-
-          <MHidden width="lgDown">
-            {!isCollapse && (
-              <IconCollapse
-                onToggleCollapse={onToggleCollapse}
-                collapseClick={collapseClick}
-              />
-            )}
-          </MHidden>
-        </Stack>
-        {isCollapse ? (
-          <MyAvatar />
-        ) : (
-          <NextLink href={endlink}>
-            {/* <NextLink href="#"> */}
-            <AccountStyle>
-              {/* <Avatar
-                alt='My Avatar'
-                src='/static/mock-images/avatars/avatar_default.jpg'
-              /> */}
-              <MyAvatar />
-              <Box sx={{ ml: 2 }}>
-                <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                  {/* {(isAuthenticated && user.displayName) || user.email} */}
-                  {!isAuthenticated && 'Guest User'}
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  {!isAuthenticated && 'Not signed in yet'}
-                </Typography>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <NextLink href="/">
+              <Box sx={{ display: 'inline-flex' }}>
+                <Logo />
               </Box>
-            </AccountStyle>
-          </NextLink>
+            </NextLink>
+
+            <MHidden width="lgDown">
+              {!isCollapse && (
+                <MyIconCollapse
+                  onToggleCollapse={onToggleCollapse}
+                  collapseClick={collapseClick}
+                />
+              )}
+            </MHidden>
+          </Stack>
+          {isCollapse ? (
+            <MyAvatar />
+          ) : (
+            <NextLink href="#">
+              {/* <NextLink href={endlink}> */}
+              <AccountStyle>
+                {/* <Avatar
+                    alt='My Avatar'
+                    src='/static/mock-images/avatars/avatar_default.jpg'
+                  /> */}
+                <MyAvatar />
+                <Box sx={{ ml: 2 }}>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ color: 'text.primary' }}
+                  >
+                    {/* {(isAuthenticated && user.displayName) || user.email} */}
+                    {!isAuthenticated && 'Guest User'}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {!isAuthenticated && 'Not signed in yet'}
+                  </Typography>
+                </Box>
+              </AccountStyle>
+            </NextLink>
+          )}
+        </Stack>
+        {isAuthenticated && (
+          <NavSection
+            navConfig={sidebarConfigAuthenticated}
+            isShow={!isCollapse}
+          />
         )}
-       
-      </Stack>
-      {isAuthenticated && (
-        <NavSection
-          navConfig={sidebarConfigAuthenticated}
-          isShow={!isCollapse}
-        />
-      )}
-      {!isAuthenticated && (
-        <NavSection navConfig={sidebarConfigGuest} isShow={!isCollapse} />
-      )}
-    </Scrollbar>
-  );
-// THIS IS THE ANNOYING BUG
+        {!isAuthenticated && (
+          <NavSection navConfig={sidebarConfigGuest} isShow={!isCollapse} />
+        )}
+      </Scrollbar>
+    );
+  }
+  function MyIconCollapse({ onToggleCollapse, collapseClick }) {
+    return (
+      <Tooltip title="Mini Menu">
+        <CardActionArea
+          onClick={onToggleCollapse}
+          sx={{
+            width: 18,
+            height: 18,
+            display: 'flex',
+            cursor: 'pointer',
+            borderRadius: '50%',
+            alignItems: 'center',
+            color: 'text.primary',
+            justifyContent: 'center',
+            border: 'solid 1px currentColor',
+            ...(collapseClick && {
+              borderWidth: 2,
+            }),
+          }}
+        >
+          <Box
+            sx={{
+              width: 8,
+              height: 8,
+              borderRadius: '50%',
+              bgcolor: 'currentColor',
+              transition: (theme) => theme.transitions.create('all'),
+              ...(collapseClick && {
+                width: 0,
+                height: 0,
+              }),
+            }}
+          />
+        </CardActionArea>
+      </Tooltip>
+    );
+  }
+
   return (
     <RootStyle
       sx={{
@@ -223,7 +354,8 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             sx: { width: DRAWER_WIDTH },
           }}
         >
-          {renderContent}
+          {/* {renderContent} */}
+          {MyRenderContent(MyIconCollapse)}
         </Drawer>
       </MHidden>
       <MHidden width="lgDown">
@@ -250,10 +382,10 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             },
           }}
         >
-          {renderContent}
+          {/* {renderContent} */}
+          {MyRenderContent(MyIconCollapse)}
         </Drawer>
       </MHidden>
-
     </RootStyle>
   );
 }
