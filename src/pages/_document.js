@@ -1,7 +1,10 @@
 import createEmotionServer from '@emotion/server/create-instance';
-import createEmotionCache from 'src/mui/utils/createEmotionCache';
+// import createEmotionCache from 'src/mui/utils/createEmotionCache';
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+
+import { getDataFromTree } from '@apollo/client/react/ssr';
+import { getApolloClient } from 'src/graphql/data/apollo.js';
 
 export default class MyDocument extends Document {
   render() {
