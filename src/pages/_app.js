@@ -1,3 +1,6 @@
+// editor
+import 'react-quill/dist/quill.snow.css';
+
 // scroll bar
 import 'simplebar/src/simplebar.css';
 
