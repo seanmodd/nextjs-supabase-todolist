@@ -26,7 +26,7 @@ import { wrapperStore } from 'src/___redux/store';
 import GlobalStyles from 'src/styles/theme/globalStyles';
 // require('dotenv').config();
 import App from 'next/app';
-
+import { FormProvider } from 'src/mui/components/hook-form';
 // import { getApolloClient } from 'src/graphql/data/apollo';
 import { getApolloClient } from 'src/mui/data/apollo';
 import { ApolloWrapper } from 'src/graphql/ApolloWrapper';
@@ -70,41 +70,43 @@ const MyApp = (props) => {
         // loading={<LoadingScreen />}
         persistor={persistor}
       > */}
-      <ReduxProvider store={store}>
-        <ApolloProvider client={client}>
-          <Auth.UserContextProvider supabaseClient={supabase}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              {/* <CacheProvider value={emotionCache}> */}
-              {/* <FeedbackWrapper>
+      <FormProvider>
+        <ReduxProvider store={store}>
+          <ApolloProvider client={client}>
+            <Auth.UserContextProvider supabaseClient={supabase}>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                {/* <CacheProvider value={emotionCache}> */}
+                {/* <FeedbackWrapper>
                 <UserWrapper>
                   <CartWrapper> */}
-                    <ThemeConfig>
-                      <NotistackProvider>
-                        {/* <ThemeProvider theme={lightTheme}> */}
-                        {/* <ThemePrimaryColor> */}
-                        <RtlLayout>
-                          <NoSsr>
-                            <Settings />
-                          </NoSsr>
-                          {/* <CssBaseline /> */}
-                          <GlobalStyles />
-                          {/* <MainLayout> */}
-                          <Component {...pageProps} />
-                          {/* </MainLayout> */}
-                        </RtlLayout>
-                        {/* </ThemePrimaryColor> */}
-                        {/* </ThemeProvider> */}
-                      </NotistackProvider>
-                    </ThemeConfig>
-                  {/* </CartWrapper>
+                <ThemeConfig>
+                  <NotistackProvider>
+                    {/* <ThemeProvider theme={lightTheme}> */}
+                    {/* <ThemePrimaryColor> */}
+                    <RtlLayout>
+                      <NoSsr>
+                        <Settings />
+                      </NoSsr>
+                      {/* <CssBaseline /> */}
+                      <GlobalStyles />
+                      {/* <MainLayout> */}
+                      <Component {...pageProps} />
+                      {/* </MainLayout> */}
+                    </RtlLayout>
+                    {/* </ThemePrimaryColor> */}
+                    {/* </ThemeProvider> */}
+                  </NotistackProvider>
+                </ThemeConfig>
+                {/* </CartWrapper>
                 </UserWrapper>
               </FeedbackWrapper> */}
-              {/* </CacheProvider> */}
-            </LocalizationProvider>
-          </Auth.UserContextProvider>
-        </ApolloProvider>
-      </ReduxProvider>
-      {/* </PersistGate> */}
+                {/* </CacheProvider> */}
+              </LocalizationProvider>
+            </Auth.UserContextProvider>
+          </ApolloProvider>
+        </ReduxProvider>
+        {/* </PersistGate> */}
+      </FormProvider>
     </HelmetProvider>
   );
 };
